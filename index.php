@@ -108,7 +108,7 @@
                   <button type="submit" class="btn btn-success" >Submit</button>
                   </div>
                   <div class="text-center mt-3">
-                    I already have an account <a href="./sections/login.html" class="text-primary">Back to Login</a>
+                    I already have an account <a href="./sections/login.php" class="text-primary">Back to Login</a>
                   </div>
                 </form>
                 </div>
@@ -130,7 +130,7 @@
             execution, we provide the tools you need to create memorable and well-coordinated events. Let’s bring your ideas to
             life one successful event at a time!</p>
             <div>
-            <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sections/sign-up.html"
+            <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sections/sign-up.php"
                 class="txt-bypass" style="text-decoration: none;">Sign up</a></button> <!-- !22 -->
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
 
@@ -158,7 +158,7 @@
                           </label>
                         </div>
                         <div style="text-align: center;">
-                          <p><a href="./sections/forgot-password.html" class="text-primary">Forgot Password?</a></p>
+                          <p><a href="./sections/forgot-password.php" class="text-primary">Forgot Password?</a></p>
                         </div>
                         <div style="text-align: center;">
                           <button type="submit" class="btn btn-success">Log In</button>

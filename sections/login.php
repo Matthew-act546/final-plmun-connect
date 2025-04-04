@@ -30,7 +30,7 @@
   
   <nav class="navbar navbar-expand-lg bg-body-primary">
     <div class="container-fluid d-flex justify-content-center">
-      <a class="navbar-brand text-white" href="../index.html"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+      <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
     </div>
   </nav>
   
@@ -54,13 +54,13 @@
         </label>
       </div>
       <div style="text-align: center;">
-        <p><a href="forgot-password.html" class="text-primary">Forgot Password?</a></p>
+        <p><a href="forgot-password.php" class="text-primary">Forgot Password?</a></p>
       </div>
       <div style="text-align: center;">
       <button type="submit" class="btn btn-success">Log In</button>
       </div>
       <div class="text-center mt-3">
-        <a href="sign-up.html" class="text-primary">New user? Register here</a>
+        <a href="sign-up.php" class="text-primary">New user? Register here</a>
     </div>
       
     </form>

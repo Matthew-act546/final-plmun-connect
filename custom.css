@@ -1,0 +1,41 @@
+:root {
+    --primary-color: #006B3C;
+    --secondary-color: #FDCC0D;
+    --font-size: 16px;
+}   
+.bg-body-primary {
+    background-color: var(--primary-color) !important;
+}
+.no-border {
+    border: none !important;
+}
+
+.txt-bypass {
+    color: green; 
+}
+
+.txt-bypass:hover {
+    color: white;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 120px;
+    height: 50px;
+    background-color: #006B3C; 
+    color: white;
+    border: none;
+    border-radius: 10%;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; 
+    transition: opacity 0.3s, visibility 0.3s;
+    font-size: 15px;
+}
+
+.back-to-top:hover {
+    background-color: #006b3da4;
+}
+

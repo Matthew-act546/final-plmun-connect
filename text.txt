@@ -1,0 +1,2 @@
+Primary color - green #006B3C
+secondary color - yellow - #FDCC0D

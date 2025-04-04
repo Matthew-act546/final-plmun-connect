@@ -13,7 +13,7 @@
 
   <nav class="navbar navbar-expand-lg bg-body-primary">
     <div class="container-fluid d-flex justify-content-center">
-      <a class="navbar-brand text-white" href="../index.html"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+      <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
     </div>
   </nav>
   
@@ -31,7 +31,7 @@
           <button type="submit" class="btn btn-success" >Send Reset Link</button>
 
           <div class="text-center mt-3">
-              <a href="login.html" class="text-primary">Back to Login</a>
+              <a href="login.php" class="text-primary">Back to Login</a>
           </div>
       </div>
   </div>

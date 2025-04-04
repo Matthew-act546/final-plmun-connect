@@ -1,3 +1,17 @@
+<?php 
+  include("db_connection.php");
+  
+
+  try {
+    $connect = mysqli_connect($db_server, $db_user, $db_pass, $db_name, $port);
+  } catch(mysqli_sql_exception) {
+    echo "You're not connected";
+  }   
+  if($connect) {
+    echo "You're connected!";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

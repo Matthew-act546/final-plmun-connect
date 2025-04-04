@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reset your Password</title>
+  <title>Sign Up</title>
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="../custom.css">
   <script src="assets/js/bootstrap.bundle.min.js" defer></script>
@@ -41,7 +41,7 @@
         <div class="mb-3">
           <p>Select your Program</p>
           <select class="form-select" name="program" aria-label="Default select example" aria-placeholder="Select your Program--" required>
-            <option selected>Lists of Programs</option>
+            <option value="notProgram" selected>Lists of Programs</option>
             <option value="MBA">Master in Business Administration</option>
             <option value="MAE-EM">Master of Arts in Education, major in Educational Management</option>
             <option value="MAE-GC">Master of Arts in Education, major in Guidance and Counseling</option>

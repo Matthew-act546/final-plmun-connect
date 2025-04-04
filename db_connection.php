@@ -9,6 +9,7 @@ $port = "3307";
 
 
 
+  
 try {
   $connect = mysqli_connect($db_server, $db_user, $db_pass, $db_name, $port);
 } catch(mysqli_sql_exception) {
@@ -17,8 +18,6 @@ try {
 if($connect) {
   echo "You're connected";
 }
-
-
 
 // $servername = "localhost:3307";  // Use the updated port
 // $username = "root";

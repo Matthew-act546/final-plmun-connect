@@ -101,7 +101,7 @@
                       <option value="BSSW">Bachelor of Science in Social Work</option>
           
                     </select>
-                   
+                  
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -148,40 +148,7 @@
                 class="txt-bypass" style="text-decoration: none;">Sign up</a></button> <!-- !22 -->
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
 
-              <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <form>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" . . . @plmun.edu.ph">
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Enter your password">
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-                          <label class="form-check-label" for="flexCheckIndeterminate">
-                            Remember me
-                          </label>
-                        </div>
-                        <div style="text-align: center;">
-                          <p><a href="./sections/forgot-password.php" class="text-primary">Forgot Password?</a></p>
-                        </div>
-                        <div style="text-align: center;">
-                          <button type="submit" class="btn btn-success">Log In</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
       </div>

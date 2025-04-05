@@ -48,7 +48,7 @@
         </li>
       </ul>
       <div class="d-flex align-items-center">
-        <button type="button"  class="btn btn-outline-warning ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 130px;">Register Now!</button>
+        <a href="./sections/sign-up.php" type="button"  class="btn btn-outline-warning ms-3" style="width: 130px;">Register Now!</a>
       </div>
       
     </div>

@@ -48,7 +48,7 @@
         </li>
       </ul>
       <div class="d-flex align-items-center">
-      <button type="button"  class="btn btn-outline-warning ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 130px;">Register Now!</button>
+        <button type="button"  class="btn btn-outline-warning ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 130px;">Register Now!</button>
       </div>
       
     </div>
@@ -66,8 +66,8 @@
             life one successful event at a time!</p>
             <div>
               <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sections/sign-up.php"
-                  class="txt-bypass" style="text-decoration: none;">Sign up</a></button> <!-- !22 -->
-              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
+                  class="txt-bypass" style="text-decoration: none;">Sign up</a></button> 
+              <a type="button" href="./sections/login.php" class="btn">Log in</a>
             </div>
           </div>
       </div>
@@ -75,7 +75,7 @@
         <div class="d-inline-block ">
           <img src="./assets/images/PLMunBuilding.jpeg" class="card-img-top img-fluid"
             style="width: 380px; height: 405px; border: 1px solid transparent; border-radius: 15%; box-shadow: 10px 10px 20px rgba(0, 128, 0, 0.6);"
-            alt="a photo of PLMun Building"> <!-- !11 -->
+            alt="a photo of PLMun Building">
         </div>
       </div>
     </div>

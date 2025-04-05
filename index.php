@@ -48,88 +48,9 @@
         </li>
       </ul>
       <div class="d-flex align-items-center">
-      <button type="button"  class="btn btn-outline-warning ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 130px;">Register Now!</button>
+        <a href="./sections/sign-up.php" type="button"  class="btn btn-outline-warning ms-3" style="width: 130px;">Register Now!</a>
       </div>
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="modal-title fs-5" id="staticBackdropLabel">Sign up</h2>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="container d-flex align-items-center justify-content-center" id="sign-up" style='min-height: 100vh;'>
-
-                <form class="form-control-sm">
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address (Institutional Email)</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email address" required>
-                  </div>   
-                  <div class="input mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Student ID</label>
-                    <input type="number" min="0" max="99999999" oninput="if(this.value.length > 8) this.value = this.value.slice(0, 8)" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter your Student ID" required>
-                  </div>
-            
-                  <div class="mb-3">
-                    <p>Select your Program</p>
-                    <select class="form-select" aria-label="Default select example" aria-placeholder="Select your Program--" required>
-                      <option selected>Lists of Programs</option>
-                      <option value="MBA">Master in Business Administration</option>
-                      <option value="MAE-EM">Master of Arts in Education, major in Educational Management</option>
-                      <option value="MAE-GC">Master of Arts in Education, major in Guidance and Counseling</option>
-                      <option value="MSCA">Master in Security and Correctional Administration</option>
-                      <option value="MIT">Master in Information Technology</option>
-                      <option value="MSCrim">Master of Science in Criminology</option>
-                      <option value="BACom">Bachelor of Arts in Communication</option>
-                      <option value="BSPsychology">Bachelor of Science in Psychology</option>
-                      <option value="BSBA-HR">BSBA Major in Human Resource Development Management</option>
-                      <option value="BSBA-MM">BSBA Major in Marketing Management</option>
-                      <option value="BSBA-OM">BSBA Major in Operations Management</option>
-                      <option value="BSA">Bachelor of Science in Accountancy</option>
-                      <option value="BSC">Bachelor of Science in Criminology</option>
-                      <option value="BSCS">Bachelor of Science in Computer Science</option>
-                      <option value="BSIT">Bachelor of Science in Information Technology</option>
-                      <option value="ACT">Associate in Computer Technology</option>
-                      <option value="DM">Doctor of Medicine</option>
-                      <option value="BEED-GEE">BEED General Elementary Education</option>
-                      <option value="BEED-MS">BSED Major in Science</option>
-                      <option value="BEED-ME">BSED Major in English</option>
-                      <option value="BEED-MSS">BSED Major in Social Science</option>
-                      <option value="BPA">Bachelor of Public Administration</option>
-                      <option value="BAPS">Bachelor of Arts in Political Science</option>
-                      <option value="BSSW">Bachelor of Science in Social Work</option>
-          
-                    </select>
-                   
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Enter your desired password" required>
-                  </div>
-            
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Re-enter your password" required>
-                  </div>
-                  
-                  <label class="form-label" for="inputGroupFile02">Upload your COR</label>
-                  <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="inputGroupFile02" required>
-            
-                  </div>
-                  <div style="text-align: center;">
-                  <button type="submit" class="btn btn-success" >Submit</button>
-                  </div>
-                  <div class="text-center mt-3">
-                    I already have an account <a href="./sections/login.php" class="text-primary">Back to Login</a>
-                  </div>
-                </form>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </nav>
 
@@ -144,44 +65,9 @@
             execution, we provide the tools you need to create memorable and well-coordinated events. Let’s bring your ideas to
             life one successful event at a time!</p>
             <div>
-            <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sections/sign-up.php"
-                class="txt-bypass" style="text-decoration: none;">Sign up</a></button> <!-- !22 -->
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
-
-              <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <form>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" . . . @plmun.edu.ph">
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Enter your password">
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-                          <label class="form-check-label" for="flexCheckIndeterminate">
-                            Remember me
-                          </label>
-                        </div>
-                        <div style="text-align: center;">
-                          <p><a href="./sections/forgot-password.php" class="text-primary">Forgot Password?</a></p>
-                        </div>
-                        <div style="text-align: center;">
-                          <button type="submit" class="btn btn-success">Log In</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sections/sign-up.php"
+                  class="txt-bypass" style="text-decoration: none;">Sign up</a></button> 
+              <a type="button" href="./sections/login.php" class="btn">Log in</a>
             </div>
           </div>
       </div>
@@ -189,7 +75,7 @@
         <div class="d-inline-block ">
           <img src="./assets/images/PLMunBuilding.jpeg" class="card-img-top img-fluid"
             style="width: 380px; height: 405px; border: 1px solid transparent; border-radius: 15%; box-shadow: 10px 10px 20px rgba(0, 128, 0, 0.6);"
-            alt="a photo of PLMun Building"> <!-- !11 -->
+            alt="a photo of PLMun Building">
         </div>
       </div>
     </div>

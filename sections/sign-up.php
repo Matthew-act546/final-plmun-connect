@@ -11,18 +11,15 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-primary">
-        <div class="container-fluid d-flex justify-content-center">
-          <a class="navbar-brand text-white" href="../index.html"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg bg-body-primary">
+      <div class="container-fluid d-flex justify-content-center">
+        <a class="navbar-brand text-white" href="../index.html"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+      </div>
+  </nav>
 
   <div class="container d-flex align-items-center justify-content-center" id="sign-up" style='min-height: 100vh;'>
-    
   <div class="card p-2" style="width: 50%;">
     <h2 class="text-center">Sign up</h2>
-    
-    
     <form class="form-control-sm" method="post" action="register.php">
       <label for="full_name" class="form-label">First and last name</label>
       <div class="input-group">
@@ -86,9 +83,8 @@
       </div>
 
     </form>
-      <div class="text-center mt-3">
-        I already have an account <a href="login.php" class="text-primary">Back to Login</a>
-      </div>
+    <div class="text-center mt-3">
+      I already have an account <a href="login.php" class="text-primary">Back to Login</a>
     </div>
   </body>
 </html>

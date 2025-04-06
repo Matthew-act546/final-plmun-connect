@@ -1,3 +1,17 @@
+<?php 
+  include("db_connection.php");
+  
+
+  try {
+    $connect = mysqli_connect($db_server, $db_user, $db_pass, $db_name, $port);
+  } catch(mysqli_sql_exception) {
+    echo "You're not connected";
+  }   
+  if($connect) {
+    echo "You're connected!";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +28,10 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-body-primary">
     <div class="container-fluid d-flex align-items-center justify-content-between ms-3">
-      <a class="navbar-brand text-white" href="#home">
-        <img src="./assets/images/Logo.png" style="height: 50px;">PLMun Connect</a>
+      <a class="navbar-brand text-white" href="#home">  
+        <img src="./assets/images/Logo.png" style="height: 50px;">
+        PLMun Connect
+      </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +56,10 @@
           <a class="nav-link text-white" href="./sections/login.php">Login</a>
         </li>
       </ul>
+<<<<<<< HEAD
+=======
+    </div>
+>>>>>>> origin/main
   </nav>
 
 
@@ -53,6 +73,7 @@
             execution, we provide the tools you need to create memorable and well-coordinated events. Let’s bring your ideas to
             life one successful event at a time!</p>
             <div>
+<<<<<<< HEAD
             <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sections/sign-up.php"
                 class="txt-bypass" style="text-decoration: none;">Sign up</a></button> <!-- !22 -->
 
@@ -90,6 +111,11 @@
                   </div>
                 </div>
               </div>
+=======
+              <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sections/sign-up.php"
+                  class="txt-bypass" style="text-decoration: none;">Sign up</a></button> 
+              <a type="button" href="./sections/login.php" class="btn">Log in</a>
+>>>>>>> origin/main
             </div>
           </div>
       </div>
@@ -97,7 +123,7 @@
         <div class="d-inline-block ">
           <img src="./assets/images/PLMunBuilding.jpeg" class="card-img-top img-fluid"
             style="width: 380px; height: 405px; border: 1px solid transparent; border-radius: 15%; box-shadow: 10px 10px 20px rgba(0, 128, 0, 0.6);"
-            alt="a photo of PLMun Building"> <!-- !11 -->
+            alt="a photo of PLMun Building">
         </div>
       </div>
     </div>
@@ -120,6 +146,68 @@
     </path>
   </svg>
 
+  
+  <div id="features-section" style="min-height: 100vh; text-align: center;">
+    <h1>Features</h1>
+    <div class="container mt-4">
+      <div class="row">
+          <div class="col-md-6 my-3">
+              <div class="card">
+                  <div class="card-body">
+                    <img src="./assets/images/host.png" class="card-img-top img-fluid" style="height: 100px; width: 80px;" alt="a photo of calendar">
+                      <h5 class="card-title">Host</h5>
+                      <p class="card-text">Perks</p>
+                        <ul class="text-start">
+                          <li>Add co-hosts and managers to events</li>
+                          <li>Manage event registration</li>
+                          <li>Check-in guests using ticket scanning</li>
+                          <li>Collect feedback from attendees after the event</li>
+                          <li>Promote events on explore pages for increased visibility</li>
+                          <li>Access insights on event discovery and registration</li>
+                          <li>Customize event pages with images and videos</li>
+                          <li>Utilize advanced integrations for event planning tasks</li>
+                        </ul>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 my-3">
+              <div class="card">
+                  <div class="card-body">
+                    <img src="./assets/images/attendees.png" class="card-img-top img-fluid" style="height: 100px; width: 80px;" alt="a photo of attendees">
+                      <h5 class="card-title">Attendees</h5>
+                      <p class="card-text">Perks</p>
+                      <ul class="text-start">
+                        <li>Easy event registration</li>
+                        <li>Access to event details (schedules, speakers, locations)</li>
+                        <li>Feedback opportunities after events</li>
+                        <li>Discover popular events in PLMun</li>
+                        <li>Social sharing of experiences and feedback</li>
+                        <li>Exclusive access to certain event perks</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#fdcc0d"fill-opacity="1"
+      d="M0,32L80,37.3C160,43,320,53,480,80C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+    </path>
+    <path fill="#006B3C" fill-opacity="1"
+      d="M0,224L80,229.3C160,235,320,245,480,208C640,171,800,85,960,85.3C1120,85,1280,171,1360,213.3L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+    </path>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#FDCC0D" fill-opacity="1"
+      d="M0,64L80,101.3C160,139,320,213,480,234.7C640,256,800,224,960,186.7C1120,149,1280,107,1360,85.3L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
+    </path>
+    <path fill="#006B3C" fill-opacity="1"
+      d="M0,64L80,58.7C160,53,320,43,480,80C640,117,800,203,960,245.3C1120,288,1280,288,1360,288L1440,288L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
+    </path>
+  </svg>
 
   <div id="about-section" class="about" style="min-height: 100vh;">
     <h1 class="text-center mb-4">About us</h1>
@@ -255,6 +343,7 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#fdcc0d"fill-opacity="1"
@@ -318,6 +407,9 @@
     </div>
   </div>
   <button id="backToTop" class="back-to-top">Back to top</button>
+=======
+  <button id="backToTop" class="back-to-top">↑ back to top?</button>
+>>>>>>> origin/main
 
   <hr style="border: 3px solid black; width: 70%; margin: 0 auto; color: black;">
   <footer style="min-height: 15vh;">

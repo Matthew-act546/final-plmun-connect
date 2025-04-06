@@ -28,7 +28,9 @@
   <nav class="navbar navbar-expand-lg bg-body-primary">
     <div class="container-fluid d-flex align-items-center justify-content-between ms-3">
       <a class="navbar-brand text-white" href="#home">
-        <img src="./assets/images/Logo.png" style="height: 50px;">PLMun Connect</a>
+        <img src="./assets/images/Logo.png" style="height: 50px;">
+        PLMun Connect
+      </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,10 +49,6 @@
           <a class="nav-link text-white" href="#features-section">Features</a>
         </li>
       </ul>
-      <div class="d-flex align-items-center">
-        <a href="./sections/sign-up.php" type="button"  class="btn btn-outline-warning ms-3" style="width: 130px;">Register Now!</a>
-      </div>
-      
     </div>
   </nav>
 

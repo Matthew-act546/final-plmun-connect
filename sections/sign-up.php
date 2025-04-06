@@ -11,11 +11,11 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg bg-body-primary">
-    <div class="container-fluid d-flex justify-content-center">
-      <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg bg-body-primary">
+        <div class="container-fluid d-flex justify-content-center">
+          <a class="navbar-brand text-white" href="../index.html"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+        </div>
+    </nav>
 
   <div class="container d-flex align-items-center justify-content-center" id="sign-up" style='min-height: 100vh;'>
     
@@ -34,10 +34,10 @@
         </div>
 
         <div class="input mb-3">
-          <label for="student_num" class="form-label">Student number</label>
-          <input type="number" name="student_num" min="0" max="99999999" oninput="if(this.value.length > 8) this.value = this.value.slice(0, 8)" class="form-control" id="student_num" aria-describedby="emailHelp" placeholder="Enter your Student number" required>
-        </div>
-    
+          <label for="exampleInputEmail1" class="form-label">Student ID</label>
+          <input type="number" min="0" max="99999999" oninput="if(this.value.length > 8) this.value = this.value.slice(0, 8)" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter your Student ID" required>
+  </div>
+  
         <div class="mb-3">
           <p>Select your Program</p>
           <select class="form-select" name="program" aria-label="Default select example" aria-placeholder="Select your Program--" required>
@@ -67,6 +67,7 @@
             <option value="BAPS">Bachelor of Arts in Political Science</option>
             <option value="BSSW">Bachelor of Science in Social Work</option>
           </select>
+         
         </div>
 
         <div class="mb-3">
@@ -80,9 +81,12 @@
         </div>
 
         <div style="text-align: center;">
-          <input type="submit" name="signUp" class="btn btn-success" value="Submit">
+        <button type="submit" class="btn btn-success" >Submit</button>
         </div>
-
+        <div class="text-center mt-3">
+          I already have an account <a href="login.html" class="text-primary">Back to Login</a>
+       </div>
+  
       </form>
       <div class="text-center mt-3">
         I already have an account <a href="login.php" class="text-primary">Back to Login</a>

@@ -14,30 +14,21 @@
 
     <nav class="navbar navbar-expand-lg bg-body-primary">
     <div class="container-fluid d-flex align-items-center justify-content-between ms-3">
-      <a class="navbar-brand text-white" href="#home">
+        <a class="navbar-brand text-white" href="../sections/main.php">
         <img src="../assets/images/Logo.png" style="height: 35px;">PLMun Connect</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
     <div class="collapse navbar-collapse me-5" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="./eventDisplaySelected.php">
-            <img src="../assets/images/Calendar.svg">Events</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active text-white" href="./createEvent.php">Create Event</a>
-        </li>
+        <ul class="navbar-nav ms-auto">
 
         <div id="datetime">
         <script>
             var now = new Date();
-  
+
             var date = now.toLocaleDateString();
             var time = now.toLocaleTimeString();
 
@@ -47,21 +38,23 @@
 
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">
+            <a class="nav-link text-white" href="#">
             <img src="../assets/images/notifBell.svg" style="height: 25px;"></a>
-          </a>
+            </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="../sections/settings.php">
+            <a class="nav-link text-white" href="../sections/settings.php">
             <img src="../assets/images/profileIcon.svg" style="height: 30px; width: 30px;"></a>
         </li>
         
-      </ul>
+    </ul>
     </div>
     </nav>
 
-    <h1>Main</h1>
+    <h1>Settings</h1>
+    <p>Here you can adjust your settings.</p>   
+    
 
 
 </body>

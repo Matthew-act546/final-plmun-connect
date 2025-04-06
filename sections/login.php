@@ -8,31 +8,23 @@
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="../custom.css">
   <script src="assets/js/bootstrap.bundle.min.js" defer></script>
-  <style>
-    a:link {
-        color: blue;
-        text-decoration: none;
-    }
-    a:visited {
-        color: purple;
-    }
-    a:hover {
-        color: orange;
-        text-decoration: underline;
-    }
-    a:active {
-        color: red;
-    }
-</style>
 </head>
 
 <body>
   
+<<<<<<< HEAD
+<nav class="navbar navbar-expand-lg bg-body-primary">
+        <div class="container-fluid d-flex justify-content-center">
+          <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+        </div>
+    </nav>
+=======
   <nav class="navbar navbar-expand-lg bg-body-primary">
     <div class="container-fluid d-flex justify-content-center">
       <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
     </div>
   </nav>
+>>>>>>> origin/main
   
   <div class="container d-flex align-items-center justify-content-center" id="sign-up" style='min-height: 100vh;'>
     <div class="card p-5" style="width: 50%;">
@@ -57,11 +49,15 @@
         <p><a href="forgot-password.php" class="text-primary">Forgot Password?</a></p>
       </div>
       <div style="text-align: center;">
-      <button type="submit" class="btn btn-success">Log In</button>
+      <button type="submit" class="btn btn-success">Log in</button>
       </div>
       <div class="text-center mt-3">
         <a href="sign-up.php" class="text-primary">New user? Register here</a>
+<<<<<<< HEAD
+      </div>
+=======
     </div>
+>>>>>>> origin/main
       
     </form>
     </div>

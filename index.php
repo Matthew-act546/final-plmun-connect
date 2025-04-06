@@ -183,7 +183,7 @@
                   <a href="https://www.facebook.com/Laaawrence" style="text-decoration: none;">
                     <img src="assets/images/fb-logo.png" class="ms-1" style="width: 30px; height: 30px;" alt="Logo">
                   </a>
-                  <a href="https://github.com/faaarbeyond" style="text-decoration: none;">
+                  <a href="https://github.com/definitelynotlaw" style="text-decoration: none;">
                     <img src="assets/images/github.png" class="ms-1" style="width: 28px; height: 28px;" alt="Logo">
                   </a>
                   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=matthewyt765@gmail.com" style="text-decoration: none;">

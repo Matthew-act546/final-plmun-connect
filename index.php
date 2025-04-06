@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +24,9 @@
 
     <div class="collapse navbar-collapse me-5" id="navbarNav">
       <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+          <a class="nav-link active text-white" href="./sections/main.php">Main</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link active text-white" href="#home">Home</a>
         </li>

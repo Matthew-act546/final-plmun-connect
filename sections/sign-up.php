@@ -11,11 +11,11 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg bg-body-primary">
-    <div class="container-fluid d-flex justify-content-center">
-      <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg bg-body-primary">
+        <div class="container-fluid d-flex justify-content-center">
+          <a class="navbar-brand text-white" href="../index.html"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+        </div>
+    </nav>
 
   <div class="container d-flex align-items-center justify-content-center" id="sign-up" style='min-height: 100vh;'>
     

@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-primary">
         <div class="container-fluid d-flex justify-content-center">
-          <a class="navbar-brand text-white" href="../index.html"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+          <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
         </div>
     </nav>
 
@@ -29,7 +29,7 @@
           <label for="exampleInputEmail1" class="form-label">Student ID</label>
           <input type="number" min="0" max="99999999" oninput="if(this.value.length > 8) this.value = this.value.slice(0, 8)" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter your Student ID" required>
   </div>
-  
+  ~
         <div class="mb-3">
           <p>Select your Program</p>
           <select class="form-select" aria-label="Default select example" aria-placeholder="Select your Program--" required>
@@ -60,7 +60,7 @@
             <option value="BSSW">Bachelor of Science in Social Work</option>
 
           </select>
-         
+        
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -78,12 +78,17 @@
   
         </div>
         <div style="text-align: center;">
-        <button type="submit" class="btn btn-success" >Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+        <div>
+        <p class="text-center text-muted">By signing up, you agree to our 
+        <a href="#" class="text-primary">Terms of Service</a> and 
+        <a href="#" class="text-primary">Privacy Policy</a>.</p>
         </div>
         <div class="text-center mt-3">
-          I already have an account <a href="login.html" class="text-primary">Back to Login</a>
-       </div>
-  
+          I already have an account <a href="login.php" class="text-primary">Back to Login</a>
+        </div>
+
       </form>
     </div>
   </body>

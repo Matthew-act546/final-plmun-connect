@@ -11,38 +11,42 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-primary">
-        <div class="container-fluid d-flex justify-content-center">
-          <a class="navbar-brand text-white" href="../index.html"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg bg-body-primary">
+      <div class="container-fluid d-flex justify-content-center">
+        <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+      </div>
+  </nav>
 
   <div class="container d-flex align-items-center justify-content-center" id="sign-up" style='min-height: 100vh;'>
-    
   <div class="card p-2" style="width: 50%;">
     <h2 class="text-center">Sign up</h2>
-    
-    
-    <form class="form-control-sm" method="post" action="register.php">
+    <form id="signupForm" class="form-control-sm" method="post" action="register.php">
       <label for="full_name" class="form-label">First and last name</label>
       <div class="input-group">
-        <input type="text" id="full_name" name="first_name" aria-label="First name" class="form-control">
-        <input type="text" id="full_name" name="last_name" aria-label="Last name" class="form-control">
+        <input type="text" id="full_name" name="first_name" aria-label="First name" class="form-control"require>
+        <input type="text" id="full_name" name="last_name" aria-label="Last name" class="form-control"require>
       </div>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address (Institutional Email)</label>
-        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your IE"  pattern="[a-zA-Z0-9._%+-]+@plmun\.edu\.ph$" 
-        title="Only @plmun.edu.ph emails are allowed" required>
-      </div>
+    <label for="exampleInputEmail1" class="form-label">Email address (Institutional Email)</label>
+    <input
+      type="email"
+      name="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      placeholder="Enter your IE"
+      require
+      >
+      <small id="email-msg" style="color: red;"></small>
+    </div>
 
       <div class="input mb-3">
         <label for="student_num" class="form-label">Student number</label>
-        <input type="number" name="student_num" min="0" max="99999999" oninput="if(this.value.length > 8) this.value = this.value.slice(0, 8)" class="form-control" id="student_num" aria-describedby="emailHelp" placeholder="Enter your Student number" required>
+        <input type="number" name="student_num" min="0" max="99999999" oninput="if(this.value.length > 8) this.value = this.value.slice(0, 8)" class="form-control" id="student_num" aria-describedby="emailHelp" placeholder="Enter your Student number" require>
       </div>
   
       <div class="mb-3">
         <p>Select your Program</p>
-        <select class="form-select" name="program" aria-label="Default select example" aria-placeholder="Select your Program--" required>
+        <select class="form-select" require name="program" aria-label="Default select example" aria-placeholder="Select your Program--" >
           <option value="notProgram" selected>Lists of Programs</option>
           <option value="MBA">Master in Business Administration</option>
           <option value="MAE-EM">Master of Arts in Education, major in Educational Management</option>
@@ -73,22 +77,23 @@
 
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" name="password" class="form-control" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Enter your desired password" required>
+        <input type="password" name="password" class="form-control" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Enter your desired password" require>
       </div>
 
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-        <input type="password" name="confirm_password"  class="form-control" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Re-enter your password" required>
+        <input type="password" name="confirm_password" require class="form-control" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Re-enter your password" >
       </div>
 
       <div style="text-align: center;">
-        <input type="submit" name="signUp" class="btn btn-success" value="Submit">
+      <button type="submit" class="btn btn-primary" name="signUp">Sign Up</button>
       </div>
 
     </form>
-      <div class="text-center mt-3">
-        I already have an account <a href="login.php" class="text-primary">Back to Login</a>
-      </div>
+    <div class="text-center mt-3">
+      I already have an account <a href="login.php" class="text-primary">Back to Login</a>
     </div>
+
+    <script src="../scripts.js"></script>
   </body>
 </html>

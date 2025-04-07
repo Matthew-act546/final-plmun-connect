@@ -1,13 +1,15 @@
 <?php
-include 'db_connection.php'; // Update the path if needed
+include 'db_connection.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 if (isset($_POST['email'])) {
-    $email = $_POST['email'];
-    $stmt = $connect->prepare("SELECT id FROM users WHERE ie_email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
+    $emailIE = $_POST['email'];
 
-    echo $stmt->num_rows > 0 ? "exists" : "available";
+    // Check domain validity
+    if (!preg_match("/^[a-zA-Z0-9._%+-]+@plmun\.edu\.ph$/", $emailIE)) {
+        echo "invalid";
+        exit();
+    }
 }
 ?>

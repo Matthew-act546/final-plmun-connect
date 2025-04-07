@@ -13,7 +13,7 @@
 
   <nav class="navbar navbar-expand-lg bg-body-primary">
       <div class="container-fluid d-flex justify-content-center">
-        <a class="navbar-brand text-white" href="../index.html"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+        <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
       </div>
   </nav>
 
@@ -30,6 +30,7 @@
         <label for="exampleInputEmail1" class="form-label">Email address (Institutional Email)</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your IE"  pattern="[a-zA-Z0-9._%+-]+@plmun\.edu\.ph$" 
         title="Only @plmun.edu.ph emails are allowed" required>
+        <small id="email-msg" style="color: red;"></small>
       </div>
 
       <div class="input mb-3">

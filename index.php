@@ -12,8 +12,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PLMun Connect</title>
   <link rel="icon" type="image/png" href="./assets/images/Logo.png">
+  <link rel="stylesheet" href="assets/custom.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="custom.css">
 </head>
 
@@ -38,12 +39,15 @@
         <li class="nav-item">
           <a class="nav-link active text-white" href="#home">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#about-section">About</a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link text-white" href="#features-section">Features</a>
         </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#about-section">About</a>
+        </li>
+        
 
         <!-- NOT AUTHENTICATED -->
         <li class="nav-item">
@@ -71,7 +75,7 @@
             execution, we provide the tools you need to create memorable and well-coordinated events. Let’s bring your ideas to
             life one successful event at a time!</p>
             <div>
-              <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sections/sign-up.php"
+              <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sign-up.php"
                   class="txt-bypass" style="text-decoration: none;">Sign up</a></button> 
               
             </div>

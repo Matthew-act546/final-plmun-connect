@@ -51,7 +51,17 @@
     }
 
     // verify if the emeail is exist
-  
+    $statement = $dbConnection->prepare("SELECT * FROM users WHERE ie_email = ? ");
+    $statement->bind_param('s', $emailIE);
+    $statement->execute();
+    $statement->store_result();
+    if($statement->num_rows > 0) {
+      $emailIE_error = "Email is already use!";
+      $error = true;
+    }
+    $statement -> close();
+
+    
     if($program == "" || $program == "notProgram") {
       $program_error = "Not a valid program";
       $error = true;

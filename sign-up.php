@@ -117,8 +117,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../custom.css">
-  <script src="assets/js/bootstrap.bundle.min.js" defer></script>
+  <link rel="stylesheet" href="../styles/custom.css">
 </head>
 <body>
 

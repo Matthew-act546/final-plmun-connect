@@ -61,7 +61,7 @@
     }
     $statement -> close();
 
-    
+
     if($program == "" || $program == "notProgram") {
       $program_error = "Not a valid program";
       $error = true;
@@ -75,6 +75,32 @@
     if($confirmPass != $password) {
       $confirmPass_error = "password and confirm password are not the same";
       $error = true;
+    }
+
+    // if there are no error here
+    if(!$error) {
+      $statement = $dbConnection->prepare(
+        "INSERT INTO users (first_name, last_name, ie_email, student_num, program, password) " . 
+        "VALUES (?, ?, ?, ?, ?, ?)"
+      );
+
+      $statement->bind_param('sssiss', $firstName, $lastName, $emailIE, $studentNum, $program, $password);
+
+      $statement -> execute();
+      $statement -> close();
+
+      // new acc will be created paagkatapos nito
+
+
+      // save session
+      $_SESSION["first name"] = $first_name;
+      $_SESSION["last_name"] = $last_name;
+      $_SESSION["ie_email"] = $emailIE;
+      $_SESSION["student_num"] = $studentNum;
+      $_SESSION["program"] = $program;
+
+      header("location: ../index.php");
+      exit;
     }
   }
 

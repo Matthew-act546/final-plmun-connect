@@ -1,5 +1,6 @@
 <?php
-  include '../db_func.php';
+  include 'db_func.php';
+  include './includes/bootstrap_import.php';
   $dbConnection = getDatabaseConnection();
 
 
@@ -116,14 +117,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../styles/custom.css">
 </head>
 <body>
 
   <nav class="navbar navbar-expand-lg bg-body-primary">
       <div class="container-fluid d-flex justify-content-center">
-        <a class="navbar-brand text-white" href="../index.php"><img src="../assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
+        <a class="navbar-brand text-white" href="index.php"><img src="./assets/images/Logo.png" style="height: 50px;"> PLMun Connect</a>
       </div>
   </nav>
 
@@ -134,10 +133,13 @@
       <label for="full_name" class="form-label">First and last name</label>
       <div class="input-group">
         <input type="text" id="full_name" name="first_name" aria-label="First name" class="form-control" value="<?= $firstName ?>" require>
-        <small class="text-danger"><?= $firstName_error ?></small>
+        
         <input type="text" id="full_name" name="last_name" aria-label="Last name" class="form-control" value="<?= $lastName ?>" require>
-        <small class="text-danger"><?= $lastName_error ?></small>
+        
       </div>
+      <small class="text-danger"> <?= $firstName_error ?> </small>
+      <small class="text-danger"> <?= $lastName_error ?></small>
+
       <div class="mb-3">
         <label for="email" class="form-label">Email address (Institutional Email)</label>
         <input type="email" name="email" value="<?= $emailIE ?>" class="form-control" id="email" placeholder="Enter your IE" require>

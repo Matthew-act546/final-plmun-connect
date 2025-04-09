@@ -53,14 +53,20 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-white" href="./settings.php">
-          <img src="./assets/images/profileIcon.svg" style="height: 30px; width: 30px;"></a>
+        <div class="btn-group ">
+          <a class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static aria-expanded="false">
+            <img src="./assets/images/profileIcon.svg" style="height: 30px; width: 30px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-start">
+            <li><a class="dropdown-item" href="#">View Profile</a></li>
+            <li><a class="dropdown-item" href="#">Events registered</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item">
+              <a class="dropdown-item" href="./logout.php">Logout</a>
+            </li>     
+          </ul>
+        </div>
       </li>
-
-      <li class="nav-item">
-        <a class="btn btn-outline-warning" href="./logout.php">Logout</a>
-      </li>     
-
     </ul>
 
     <?php 

@@ -45,7 +45,7 @@
       $error = true;
     }
   
-    if($studentNum != 8) {
+    if($studentNum < 7 && $studentNum >8) {
       $studentNum_error = "8 is the number of student number";
       $error = true;
     }

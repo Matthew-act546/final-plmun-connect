@@ -1,9 +1,7 @@
 <?php
-  include 'db_func.php';
-  include './includes/bootstrap_import.php';
+  include './database/db_func.php';
   $dbConnection = getDatabaseConnection();
-
-
+  
   $firstName = "";
   $lastName = "";
   $studentNum = "";
@@ -91,8 +89,6 @@
       $statement -> close();
 
       // new acc will be created paagkatapos nito
-
-
       // save session
       $_SESSION["first name"] = $first_name;
       $_SESSION["last_name"] = $last_name;
@@ -104,8 +100,6 @@
       exit;
     }
   }
-
-  
 ?>
 
 
@@ -113,11 +107,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-</head>
+  <?php 
+    include './section_components/header_includes/bootstrap.php';
+  ?>
+
 <body>
 
   <nav class="navbar navbar-expand-lg bg-body-primary">
@@ -207,4 +200,5 @@
 
     <script src="../scripts.js"></script>
   </body>
+  
 </html>

@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-expand-lg bg-body-primary">
   <div class="container-fluid d-flex align-items-center justify-content-between ms-3">
     <a class="navbar-brand text-white" href="index.php">  
@@ -49,7 +51,7 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link text-white" href="../sections/settings.php">
+      <a class="nav-link text-white" href="./settings.php">
         <img src="./assets/images/profileIcon.svg" style="height: 30px; width: 30px;"></a>
     </li>
 
@@ -60,9 +62,6 @@
     ?>
 
     <ul class="navbar-nav ms-auto">
-      <li class="nav-item">
-        <a class="nav-link active text-white" href="./sections/main.php">Main</a>
-      </li>
       <li class="nav-item">
         <a class="nav-link active text-white" href="./index.php#home">Home</a>
       </li>

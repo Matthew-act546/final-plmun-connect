@@ -1,4 +1,6 @@
-
+<?php
+  include 'C:\xampp\htdocs\plmun-connect-final\section_components\authenticated.php';
+?>
 
 <nav class="navbar navbar-expand-lg bg-body-primary">
   <div class="container-fluid d-flex align-items-center justify-content-between ms-3">
@@ -18,43 +20,53 @@
     ?>
 
     <ul class="navbar-nav ms-auto">
-    <li class="nav-item">
-      <a class="nav-link text-white" href="./eventDisplaySelected.php">
-        <img src="./assets/images/Calendar.svg">Events</a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="./eventDisplaySelected.php">
+          <img src="./assets/images/Calendar.svg">Events</a>
+      </li>
 
-    <li class="nav-item">
-      <a class="nav-link active text-white" href="./createEvent.php">Create Event</a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link active text-white" href="./createEvent.php">Create Event</a>
+      </li>
 
-    <div id="datetime">
-      <script>
-        function updateDateTime() {
-            var now = new Date();
-            var date = now.toLocaleDateString();
-            var time = now.toLocaleTimeString();
+      <div id="datetime">
+        <script>
+          function updateDateTime() {
+              var now = new Date();
+              var date = now.toLocaleDateString();
+              var time = now.toLocaleTimeString();
 
-            document.getElementById("datetime").innerHTML = date + "<br>" + time;
-        }
+              document.getElementById("datetime").innerHTML = date + "<br>" + time;
+          }
 
-        updateDateTime();
+          updateDateTime();
 
-        setInterval(updateDateTime, 1000);
-      </script>
-    </div>
+          setInterval(updateDateTime, 1000);
+        </script>
+      </div>
 
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white" href="#">
-        <img src="./assets/images/notifBell.svg" style="height: 25px;"></a>
-      </a>
-    </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">
+          <img src="./assets/images/notifBell.svg" style="height: 25px;"></a>
+        </a>
+      </li>
 
-    <li class="nav-item">
-      <a class="nav-link text-white" href="./settings.php">
-        <img src="./assets/images/profileIcon.svg" style="height: 30px; width: 30px;"></a>
-    </li>
-
+      <li class="nav-item">
+        <div class="btn-group ">
+          <a class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static aria-expanded="false">
+            <img src="./assets/images/profileIcon.svg" style="height: 30px; width: 30px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-start">
+            <li><a class="dropdown-item" href="#">View Profile</a></li>
+            <li><a class="dropdown-item" href="#">Events registered</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item">
+              <a class="dropdown-item" href="./logout.php">Logout</a>
+            </li>     
+          </ul>
+        </div>
+      </li>
     </ul>
 
     <?php 

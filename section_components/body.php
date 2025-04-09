@@ -1,4 +1,6 @@
 <?php 
+  include 'C:\xampp\htdocs\plmun-connect-final\section_components\authenticated.php';
+
   if($authenticated) {
 ?>
 
@@ -11,6 +13,7 @@
 
 <?php 
   } else {
+  
 ?>
 
   <body>

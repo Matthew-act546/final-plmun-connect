@@ -1,5 +1,11 @@
-<?php 
-  session_start();
+<?php
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
 
-  $authenticated = true;
+  $authenticated = false;
+
+  if (isset($_SESSION["ie_email"])) {
+    $authenticated = true;
+  }
 ?>

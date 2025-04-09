@@ -1,6 +1,12 @@
 <?php
+  session_start();
   include './database/db_func.php';
   $dbConnection = getDatabaseConnection();
+
+  if (isset($_SESSION["ie_email"])) {
+    header('location: /index.php');
+    exit;
+  }
   
   $firstName = "";
   $lastName = "";
@@ -26,8 +32,8 @@
     $studentNum = $_POST["student_num"];
     $emailIE = $_POST["email"];
     $program = $_POST["program"];
-    $password = md5($_POST["password"]);
-    $confirmPass = md5($_POST["confirm_password"]);
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $confirmPass = $_POST["confirm_password"];
 
     if(empty($firstName)) {
       $firstName_error = "First name is required";
@@ -71,8 +77,8 @@
       $error = true;
     }
   
-    if($confirmPass != $password) {
-      $confirmPass_error = "password and confirm password are not the same";
+    if (!password_verify($_POST["confirm_password"], $password)) {
+      $confirmPass_error = "Password and confirm password do not match.";
       $error = true;
     }
 
@@ -86,17 +92,22 @@
       $statement->bind_param('sssiss', $firstName, $lastName, $emailIE, $studentNum, $program, $password);
 
       $statement -> execute();
+
+      $insert_id = $dbConnection->insert_id;
       $statement -> close();
 
+
+      
       // new acc will be created paagkatapos nito
       // save session
+      $_SESSION["id"] = $insert_id;
       $_SESSION["first name"] = $first_name;
       $_SESSION["last_name"] = $last_name;
       $_SESSION["ie_email"] = $emailIE;
       $_SESSION["student_num"] = $studentNum;
       $_SESSION["program"] = $program;
 
-      header("location: ../index.php");
+      header("location: ./index.php");
       exit;
     }
   }

@@ -1,7 +1,7 @@
 <?php 
   session_start();
 
-  $authenticated = false;
+  $authenticated = true;
 ?>
 
 <head>

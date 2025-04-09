@@ -16,10 +16,9 @@
     ?>
 
     <ul class="navbar-nav ms-auto">
-
     <li class="nav-item">
       <a class="nav-link text-white" href="./eventDisplaySelected.php">
-        <img src="../assets/images/Calendar.svg">Events</a>
+        <img src="./assets/images/Calendar.svg">Events</a>
     </li>
 
     <li class="nav-item">
@@ -27,26 +26,31 @@
     </li>
 
     <div id="datetime">
-    <script>
-        var now = new Date();
+      <script>
+        function updateDateTime() {
+            var now = new Date();
+            var date = now.toLocaleDateString();
+            var time = now.toLocaleTimeString();
 
-        var date = now.toLocaleDateString();
-        var time = now.toLocaleTimeString();
+            document.getElementById("datetime").innerHTML = date + "<br>" + time;
+        }
 
-        document.getElementById("datetime").innerHTML = date + "<br>" + time;
-    </script>
+        updateDateTime();
+
+        setInterval(updateDateTime, 1000);
+      </script>
     </div>
 
     </li>
     <li class="nav-item">
       <a class="nav-link text-white" href="#">
-        <img src="../assets/images/notifBell.svg" style="height: 25px;"></a>
+        <img src="./assets/images/notifBell.svg" style="height: 25px;"></a>
       </a>
     </li>
 
     <li class="nav-item">
       <a class="nav-link text-white" href="../sections/settings.php">
-        <img src="../assets/images/profileIcon.svg" style="height: 30px; width: 30px;"></a>
+        <img src="./assets/images/profileIcon.svg" style="height: 30px; width: 30px;"></a>
     </li>
 
     </ul>

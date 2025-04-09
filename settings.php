@@ -24,17 +24,17 @@
 
     <div class="collapse navbar-collapse me-5" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+        <li>
+            <div id="datetime">
+            <script>
+                var now = new Date();
 
-        <div id="datetime">
-        <script>
-            var now = new Date();
+                var date = now.toLocaleDateString();
+                var time = now.toLocaleTimeString();
 
-            var date = now.toLocaleDateString();
-            var time = now.toLocaleTimeString();
-
-            document.getElementById("datetime").innerHTML = date + "<br>" + time;
-        </script>
-        </div>
+                document.getElementById("datetime").innerHTML = date + "<br>" + time;
+            </script>
+            </div>
 
         </li>
         <li class="nav-item">

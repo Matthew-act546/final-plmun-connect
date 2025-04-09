@@ -32,8 +32,8 @@
     $studentNum = $_POST["student_num"];
     $emailIE = $_POST["email"];
     $program = $_POST["program"];
-    $password = md5($_POST["password"]);
-    $confirmPass = md5($_POST["confirm_password"]);
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $confirmPass = $_POST["confirm_password"];
 
     if(empty($firstName)) {
       $firstName_error = "First name is required";
@@ -45,7 +45,7 @@
       $error = true;
     }
   
-    if($studentNum < 7 && $studentNum >8) {
+    if($studentNum != 8) {
       $studentNum_error = "8 is the number of student number";
       $error = true;
     }
@@ -77,8 +77,8 @@
       $error = true;
     }
   
-    if($confirmPass != $password) {
-      $confirmPass_error = "password and confirm password are not the same";
+    if (!password_verify($_POST["confirm_password"], $password)) {
+      $confirmPass_error = "Password and confirm password do not match.";
       $error = true;
     }
 

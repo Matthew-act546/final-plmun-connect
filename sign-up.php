@@ -1,6 +1,12 @@
 <?php
+  session_start();
   include './database/db_func.php';
   $dbConnection = getDatabaseConnection();
+
+  if (isset($_SESSION["ie_email"])) {
+    header('location: /index.php');
+    exit;
+  }
   
   $firstName = "";
   $lastName = "";
@@ -86,17 +92,22 @@
       $statement->bind_param('sssiss', $firstName, $lastName, $emailIE, $studentNum, $program, $password);
 
       $statement -> execute();
+
+      $insert_id = $dbConnection->insert_id;
       $statement -> close();
 
+
+      
       // new acc will be created paagkatapos nito
       // save session
+      $_SESSION["id"] = $insert_id;
       $_SESSION["first name"] = $first_name;
       $_SESSION["last_name"] = $last_name;
       $_SESSION["ie_email"] = $emailIE;
       $_SESSION["student_num"] = $studentNum;
       $_SESSION["program"] = $program;
 
-      header("location: ../index.php");
+      header("location: ./index.php");
       exit;
     }
   }

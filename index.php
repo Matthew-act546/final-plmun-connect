@@ -1,3 +1,6 @@
+<?php
+  include 'C:\xampp\htdocs\plmun-connect-final\section_components\authenticated.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 

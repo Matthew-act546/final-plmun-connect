@@ -7,11 +7,18 @@
   $password = "";
 
   if($_SERVER['REQUEST_METHOD'] == "POST") {
-    $email = $_POST["email"];
+    $ieEmail = $_POST["ie_email"];
     $password = $_POST["password"];
 
     if (empty($email) || empty($password)) {
       $error = "Password or Email are required";
+    } else {
+      include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+      $db_connection = getDatabaseConnection();
+
+      $statement = $db_connection -> prepare("SELECT * FROM users WHERE ie_email = ?");
+
+      $statement = $bind_param('s', $ieEmail);
     }
 
   }
@@ -25,7 +32,6 @@
   
   <div class="container d-flex align-items-center justify-content-center" id="sign-up" style='min-height: 100vh;'>
     <div class="card p-5" style="width: 50%;">
-       
     
       <form class="form-control-sm" method="post">
         <?php if (!empty($error)) { ?>

@@ -1,5 +1,5 @@
 <?php
-  include './includes/bootstrap_import.php';
+  include './section_components/header_includes/bootstrap.php';
 ?>
   <nav class="navbar navbar-expand-lg bg-body-primary">
     <div class="container-fluid d-flex justify-content-center">

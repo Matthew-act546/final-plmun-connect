@@ -32,7 +32,7 @@
     $studentNum = $_POST["student_num"];
     $emailIE = $_POST["email"];
     $program = $_POST["program"];
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $password = $_POST["password"];
     $confirmPass = $_POST["confirm_password"];
 
     if(empty($firstName)) {
@@ -77,12 +77,13 @@
       $error = true;
     }
   
-    if (!password_verify($_POST["confirm_password"], $password)) {
+    if ($confirmPass !== $password) {
       $confirmPass_error = "Password and confirm password do not match.";
       $error = true;
     }
 
     // if there are no error here
+    
     if(!$error) {
       $statement = $dbConnection->prepare(
         "INSERT INTO users (first_name, last_name, ie_email, student_num, program, password) " . 
@@ -95,19 +96,8 @@
 
       $insert_id = $dbConnection->insert_id;
       $statement -> close();
-
-
       
-      // new acc will be created paagkatapos nito
-      // save session
-      $_SESSION["id"] = $insert_id;
-      $_SESSION["first name"] = $first_name;
-      $_SESSION["last_name"] = $last_name;
-      $_SESSION["ie_email"] = $emailIE;
-      $_SESSION["student_num"] = $studentNum;
-      $_SESSION["program"] = $program;
-
-      header("location: ./index.php");
+      header("location: ./login.php");
       exit;
     }
   }
@@ -190,7 +180,7 @@
 
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" name="password"  class="form-control" value="<?= $password ?>" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Enter your desired password" require>
+        <input type="password" name="password"  class="form-control" maxlength="50" minlength="8" id="exampleInputPassword1" placeholder="Enter your desired password" require>
         <small class="text-danger"><?= $password_error ?></small>
       </div>
 

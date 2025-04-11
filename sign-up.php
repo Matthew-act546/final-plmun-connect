@@ -96,19 +96,8 @@
 
       $insert_id = $dbConnection->insert_id;
       $statement -> close();
-
-
       
-      // new acc will be created paagkatapos nito
-      // save session
-      $_SESSION["id"] = $insert_id;
-      $_SESSION["first_name"] = $first_name;
-      $_SESSION["last_name"] = $last_name;
-      $_SESSION["ie_email"] = $emailIE;
-      $_SESSION["student_num"] = $studentNum;
-      $_SESSION["program"] = $program;
-
-      header("location: ./index.php");
+      header("location: ./login.php");
       exit;
     }
   }

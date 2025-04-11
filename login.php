@@ -2,26 +2,49 @@
   include './section_components/header_includes/bootstrap.php';
   include 'C:\xampp\htdocs\plmun-connect-final\section_components\authenticated.php';
 
-  $email = "";
+  $ie_email = "";
   $error = "";
-  $password = "";
 
-  if($_SERVER['REQUEST_METHOD'] == "POST") {
-    $ieEmail = $_POST["ie_email"];
-    $password = $_POST["password"];
+  if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $ie_email = $_POST["ie_email"];
+    $pass = trim($_POST["password"]); // Trim whitespace
 
-    if (empty($email) || empty($password)) {
-      $error = "Password or Email are required";
+    if (empty($ie_email) || empty($pass)) {
+        $error = "Password or Email are required";
     } else {
       include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
       $db_connection = getDatabaseConnection();
 
-      $statement = $db_connection -> prepare("SELECT * FROM users WHERE ie_email = ?");
+      $statement = $db_connection->prepare("SELECT id, first_name, last_name, ie_email, student_num, program, password, role, created_at FROM users WHERE ie_email = ?");
 
-      $statement = $bind_param('s', $ieEmail);
+      $statement->bind_param('s', $ie_email);
+      $statement->execute();
+      $statement->bind_result($id, $first_name, $last_name, $ie_email, $student_num, $program, $password, $role, $created_at);
+
+      if ($statement->fetch()) {
+        if ($pass === $password) {
+          $_SESSION["id"] = $id;
+          $_SESSION["first_name"] = $first_name;
+          $_SESSION["last_name"] = $last_name;
+          $_SESSION["ie_email"] = $ie_email;
+          $_SESSION["student_num"] = $student_num;
+          $_SESSION["program"] = $program;
+          $_SESSION["role"] = $role;
+          $_SESSION["created_at"] = $created_at;
+
+          header("location: index.php");
+          exit;
+        } else {
+          $error = "Password invalid";
+        }
+      } else {
+      $error = "Email invalid";
     }
 
+    $statement->close();
   }
+}
+
 ?>
   
   <nav class="navbar navbar-expand-lg bg-body-primary">
@@ -34,16 +57,18 @@
     <div class="card p-5" style="width: 50%;">
     
       <form class="form-control-sm" method="post">
+    
         <?php if (!empty($error)) { ?>
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong><?= $error ?></strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         <?php } ?>
+
         <h1 class="text-center">Login</h1>
         <div class="mb-3">
           <label for="email" class="form-label">Institutional Email</label>
-          <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter your Institutional Email">
+          <input type="email" value="<?= $ie_email; ?>" class="form-control" name="ie_email" id="email" aria-describedby="emailHelp" placeholder="Enter your Institutional Email">
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>

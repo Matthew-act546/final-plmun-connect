@@ -4,16 +4,35 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
     <?php 
         include './section_components/header_includes/bootstrap.php';
     ?>
-</head>
 <body>
 
     <?php 
         include './section_components/header_includes/nav.php';
     ?>
-    <h1>Event Display Selected</h1>
+
+<div class="container mt-3" style="min-height: 100vh;">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="m-0">Your event list!</h1>
+        <div id="datetimes" class="text-end"></div>
+    </div>
+</div>
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var date = now.toLocaleDateString();
+            var time = now.toLocaleTimeString();
+            document.getElementById("datetimes").innerHTML = date + "<br>" + time;
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+
+    <?php 
+        include './section_components/footer.php';
+    ?>
 </body>
 </html>

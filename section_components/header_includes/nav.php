@@ -1,5 +1,5 @@
 <?php
-  include 'C:\xampp\htdocs\plmun-connect-final\section_components\authenticated.php';
+  include 'section_components/authenticated.php';
 ?>
 
 <nav class="navbar navbar-expand-lg bg-body-primary">
@@ -27,29 +27,6 @@
 
       <li class="nav-item">
         <a class="nav-link active text-white" href="./createEvent.php">Create Event</a>
-      </li>
-
-      <div id="datetime">
-        <script>
-          function updateDateTime() {
-              var now = new Date();
-              var date = now.toLocaleDateString();
-              var time = now.toLocaleTimeString();
-
-              document.getElementById("datetime").innerHTML = date + "<br>" + time;
-          }
-
-          updateDateTime();
-
-          setInterval(updateDateTime, 1000);
-        </script>
-      </div>
-
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="#">
-          <img src="./assets/images/notifBell.svg" style="height: 25px;"></a>
-        </a>
       </li>
 
       <li class="nav-item">

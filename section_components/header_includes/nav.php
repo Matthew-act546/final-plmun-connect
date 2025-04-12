@@ -21,7 +21,7 @@
 
     <ul class="navbar-nav ms-auto">
       <li class="nav-item">
-        <a class="nav-link text-white" href="./eventDisplaySelected.php">
+        <a class="nav-link text-white" href="./event.php">
           <img src="./assets/images/Calendar.svg">Events</a>
       </li>
 
@@ -54,12 +54,12 @@
 
       <li class="nav-item">
         <div class="btn-group ">
-          <a class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static aria-expanded="false">
+          <a class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
             <img src="./assets/images/profileIcon.svg" style="height: 30px; width: 30px;">
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-start">
-            <li><a class="dropdown-item" href="#">View Profile</a></li>
-            <li><a class="dropdown-item" href="#">Events registered</a></li>
+            <li><a class="dropdown-item" href="./viewProfile.php">View Profile</a></li>
+            <li><a class="dropdown-item" href="./settings.php">Settings</a></li>
             <li><hr class="dropdown-divider"></li>
             <li class="nav-item">
               <a class="dropdown-item" href="./logout.php">Logout</a>

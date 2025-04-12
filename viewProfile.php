@@ -15,7 +15,7 @@
         include './section_components/header_includes/nav.php';
     ?>
 
-    <h1>Event Display Selected</h1>
+    <h1>profile</h1>
 
 
 </body>

@@ -19,6 +19,18 @@
         <div id="datetimes" class="text-end"></div>
     </div>
     <p>here is your profile</p>
+    <p>
+        Name: <?= $_SESSION['first_name'] . " " . $_SESSION['last_name'];?> <br>
+        Student ID: <?= $_SESSION['student_num']?> <br>
+        Program: <?= $_SESSION['program']?> <br>
+        Institutional Email: <?= $_SESSION['ie_email']?> <br>
+        Role: <?= $_SESSION['role']?> <br>
+        Created: <?= $_SESSION['created_at']?> <br>
+    </p>
+
+    <button type="btn" class="btn btn-success">Edit profile</button>
+    <button type="btn" class="btn btn-success">Change Password</button>
+    <button type="btn" class="btn btn-outline-danger">Delete Account</button>
 </div>
     <script>
         function updateDateTime() {

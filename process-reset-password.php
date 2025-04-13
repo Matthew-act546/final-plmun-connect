@@ -10,39 +10,39 @@ $errors = [];
 
 // Validate token
 if (!$token) {
-    $errors[] = "Invalid token.";
+  $errors[] = "Invalid token.";
 } else {
-    $token_hash = hash("sha256", $token);
+  $token_hash = hash("sha256", $token);
 
-    $sql = "SELECT * FROM users WHERE reset_token_hash = ?";
-    $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("s", $token_hash);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
+  $sql = "SELECT * FROM users WHERE reset_token_hash = ?";
+  $stmt = $mysqli->prepare($sql);
+  $stmt->bind_param("s", $token_hash);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $user = $result->fetch_assoc();
 
-    if (!$user) {
-      $errors[] = "Token not found.";
-    } elseif (strtotime($user["reset_token_expires_at"]) <= time()) {
-      $errors[] = "Token has expired.";
-    }
+  if (!$user) {
+    $errors[] = "Token not found.";
+  } elseif (strtotime($user["reset_token_expires_at"]) <= time()) {
+    $errors[] = "Token has expired.";
+  }
 }
 
 // Validate password
 if (strlen($password) < 8) {
-    $errors[] = "Password must be at least 8 characters.";
+  $errors[] = "Password must be at least 8 characters.";
 }
 if ($password !== $confirm) {
-    $errors[] = "Passwords do not match.";
+  $errors[] = "Passwords do not match.";
 }
 
 // If there are errors, show them
 if (!empty($errors)) {
-    foreach ($errors as $error) {
-        echo "<p style='color:red;'>$error</p>";
-    }
-    echo "<a href='reset-password.php?token=" . htmlspecialchars($token) . "'>Go back</a>";
-    exit;
+  foreach ($errors as $error) {
+    echo "<p style='color:red;'>$error</p>";
+  }
+  echo "<a href='reset-password.php?token=" . htmlspecialchars($token) . "'>Go back</a>";
+  exit;
 }
 
 
@@ -51,5 +51,5 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("ss", $password, $user["id"]);
 $stmt->execute();
 
-echo "<p style='color:green;'>Password updated. You can now <a href='login.php'>login</a>.</p>";
+echo "<h3>Password updated.</h3> You can now <a href='login.php'>login</a>.";
 ?>

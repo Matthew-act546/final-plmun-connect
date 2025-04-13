@@ -29,25 +29,24 @@ if (strtotime($user["reset_token_expires_at"]) <= time()) {
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Reset Password</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-</head>
+<?php 
+    include './section_components/header_includes/bootstrap.php';
+?>
 <body>
+    <div class="container mt-5  mx-auto" style="width: 50%;">
+        <h1>Reset/New Password</h1>
 
-    <h1>Reset Password</h1>
+        <form method="POST" action="process-reset-password.php">
+            <input type="hidden" name="token" value="<?= htmlspecialchars($_GET["token"] ?? '') ?>">
 
-    <form method="POST" action="process-reset-password.php">
-        <input type="hidden" name="token" value="<?= htmlspecialchars($_GET["token"] ?? '') ?>">
+            <label for="password">New password</label>
+            <input type="password" class="form-control border" style="width: 50%;" name="password" required>
 
-        <label for="password">New password</label>
-        <input type="password" name="password" required>
-
-        <label for="password_confirmation">Confirm password</label>
-        <input type="password" name="password_confirmation" required>
-
-        <button type="submit">Reset</button>
-    </form>
+            <label for="password_confirmation">Confirm password</label>
+            <input type="password" class="form-control border" style="width: 50%;" name="password_confirmation" required>
+            
+            <button type="submit" class="btn btn-success mt-2">Reset</button>
+        </form>
+    </div>
 </body>
 </html>

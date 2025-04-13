@@ -7,7 +7,7 @@
     header('location: /index.php');
     exit;
   }
-  
+
   $firstName = "";
   $lastName = "";
   $studentNum = "";
@@ -85,20 +85,49 @@
     // if there are no error here
     
     if(!$error) {
-      $statement = $dbConnection->prepare(
-        "INSERT INTO users (first_name, last_name, ie_email, student_num, program, password) " . 
-        "VALUES (?, ?, ?, ?, ?, ?)"
+      $activation_token = bin2hex(random_bytes(16));
+
+      $activation_token_hash = hash("sha256", $activation_token);
+
+      $mysqli = require __DIR__ . "/database/db_connection.php"; //error?
+
+      $sql =(
+        "INSERT INTO users (first_name, last_name, ie_email, student_num, program, password, account_activation_hash)" . 
+        "VALUES (?, ?, ?, ?, ?, ?, ?)"
       );
 
-      $statement->bind_param('sssiss', $firstName, $lastName, $emailIE, $studentNum, $program, $password);
+      $stmt = $mysqli->stmt_init();
 
-      $statement -> execute();
+      if (!$stmt->prepare($sql)) {
+        die("SQL error: " . $mysqli->error);
+      }
 
-      $insert_id = $dbConnection->insert_id;
-      $statement -> close();
-      
-      header("location: ./login.php");
-      exit;
+      $stmt->bind_param('sssisss', $firstName, $lastName, $emailIE, $studentNum, $program, $password, $activation_token_hash);
+
+
+      if ($stmt->execute()) {
+        $mail = require __DIR__ . "/mailer.php";
+    
+        $mail->setFrom("noreply@example.com");
+        $mail->addAddress($emailIE);
+        $mail->Subject = "Account Activation";
+        $mail->Body = <<<END
+    
+        Click <a href="http://localhost/plmun-connect-final/activate-account.php?token=$activation_token">here</a> 
+        to activate your account.
+    
+        END;
+    
+        try {
+          $mail->send();
+        } catch (Exception $e) {
+          echo "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
+          exit;
+        }
+    
+        header("Location: sign-up-success.php");
+        exit;
+      } 
     }
   }
 ?>

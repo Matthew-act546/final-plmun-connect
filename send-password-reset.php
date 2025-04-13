@@ -28,9 +28,12 @@ if ($mysqli->affected_rows) {
   $mail->addAddress($email);
   $mail->Subject = "Password Reset";
   $mail->Body = <<<END
-
-  Click <a href="http://localhost/plmun-connect-final/reset-password.php?token=$token">here</a> 
-  to reset your password.
+  <h1>PLMun connect - forgot password</h1>
+  <p> 
+    Do you wish to change your password? Click 
+    <a href="http://localhost/plmun-connect-final/reset-password.php?token=$token">here</a> 
+    to reset your password. If not, please disregard this email.
+  </p>
 
   END;
 
@@ -42,5 +45,4 @@ if ($mysqli->affected_rows) {
 }
 
 echo "Message sent, please check your inbox.";
-
 ?>

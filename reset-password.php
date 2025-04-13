@@ -26,9 +26,6 @@ if ($user === null) {
 if (strtotime($user["reset_token_expires_at"]) <= time()) {
     die("token has expired");
 }
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,17 +39,15 @@ if (strtotime($user["reset_token_expires_at"]) <= time()) {
     <h1>Reset Password</h1>
 
     <form method="POST" action="process-reset-password.php">
-  <input type="hidden" name="token" value="<?= htmlspecialchars($_GET["token"] ?? '') ?>">
+        <input type="hidden" name="token" value="<?= htmlspecialchars($_GET["token"] ?? '') ?>">
 
-  <label for="password">New password</label>
-  <input type="password" name="password" required>
+        <label for="password">New password</label>
+        <input type="password" name="password" required>
 
-  <label for="password_confirmation">Confirm password</label>
-  <input type="password" name="password_confirmation" required>
+        <label for="password_confirmation">Confirm password</label>
+        <input type="password" name="password_confirmation" required>
 
-  <button type="submit">Reset</button>
-</form>
-
-
+        <button type="submit">Reset</button>
+    </form>
 </body>
 </html>

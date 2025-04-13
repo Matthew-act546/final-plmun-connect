@@ -15,14 +15,14 @@
       include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
       $db_connection = getDatabaseConnection();
 
-      $statement = $db_connection->prepare("SELECT id, first_name, last_name, ie_email, student_num, program, password, role, created_at FROM users WHERE ie_email = ?");
+      $statement = $db_connection->prepare("SELECT id, first_name, last_name, ie_email, student_num, program, password, role, created_at, account_activation_hash FROM users WHERE ie_email = ?");
 
       $statement->bind_param('s', $ie_email);
       $statement->execute();
-      $statement->bind_result($id, $first_name, $last_name, $ie_email, $student_num, $program, $password, $role, $created_at);
+      $statement->bind_result($id, $first_name, $last_name, $ie_email, $student_num, $program, $password, $role, $created_at, $account_activation_hash);
 
       if ($statement->fetch()) {
-        if ($pass === $password) {
+        if ($pass === $password && $account_activation_hash == NULL) {
           $_SESSION["id"] = $id;
           $_SESSION["first_name"] = $first_name;
           $_SESSION["last_name"] = $last_name;

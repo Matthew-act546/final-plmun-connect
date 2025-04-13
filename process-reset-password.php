@@ -1,5 +1,5 @@
 <?php
-
+include './section_components/header_includes/bootstrap.php';
 $mysqli = require __DIR__ . "/database/db_connection.php";
 
 $token = $_POST["token"] ?? '';
@@ -51,5 +51,5 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("ss", $password, $user["id"]);
 $stmt->execute();
 
-echo "<h3>Password updated.</h3> You can now <a href='login.php'>login</a>.";
+echo "<h3 class='m-5'>Password updated.</h3> You can now <a href='login.php'>login</a>.";
 ?>

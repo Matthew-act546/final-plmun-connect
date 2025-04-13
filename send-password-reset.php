@@ -1,4 +1,5 @@
 <?php
+include './section_components/header_includes/bootstrap.php';
 $email = $_POST["email"];
 
 $token = bin2hex(random_bytes(16));
@@ -44,5 +45,5 @@ if ($mysqli->affected_rows) {
   }
 }
 
-echo "Message sent, please check your inbox.";
+echo "<h3 class='m-5'>Message sent, please check your inbox.</h3>";
 ?>

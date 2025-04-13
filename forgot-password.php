@@ -10,7 +10,7 @@
   </nav>
   
   <div class="container d-flex align-items-center justify-content-center" id="sign-up" style='min-height: 100vh;'>
-    <div class="card p-5" style="width: 50%;">
+    <div class="card p-5 shadow" style="width: 50%;">
       <h3 class="card-title text-center">Forgot Password</h3>
       <p class="text-center text-muted">Enter your email address and we’ll send you a link to reset your password.</p>
       <form action="./send-password-reset.php" method="POST">
@@ -18,12 +18,10 @@
           <label for="email">Email Address</label>
           <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
         </div>
-        <button type="submit" class="btn btn-success">Send Reset Link</button>
+        <button type="submit" class="btn btn-success mt-3">Send Reset Link</button>
       </form>
-
-      <div class="text-center mt-3">
-          <a href="login.php" class="text-primary">Back to Login</a>
-      </div>
+      <a href="login.php" class="text-primary">Back to Login</a>
+    
     </div>
   </div>
 </body>

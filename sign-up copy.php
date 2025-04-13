@@ -7,7 +7,9 @@
     header('location: /index.php');
     exit;
   }
-
+  
+  
+  
   $firstName = "";
   $lastName = "";
   $studentNum = "";
@@ -85,49 +87,74 @@
     // if there are no error here
     
     if(!$error) {
+      $statement = $dbConnection->prepare(
+        "INSERT INTO users (first_name, last_name, ie_email, student_num, program, password) " . 
+        "VALUES (?, ?, ?, ?, ?, ?)"
+      );
+
+      $statement->bind_param('sssiss', $firstName, $lastName, $emailIE, $studentNum, $program, $password);
+
+      $statement -> execute();
+
+      $insert_id = $dbConnection->insert_id;
+      $statement -> close();
+
+      // =================== here ======================= debuggingg....
       $activation_token = bin2hex(random_bytes(16));
 
       $activation_token_hash = hash("sha256", $activation_token);
-
-      $mysqli = require __DIR__ . "/database/db_connection.php"; //error?
-
-      $sql =(
-        "INSERT INTO users (first_name, last_name, ie_email, student_num, program, password, account_activation_hash)" . 
-        "VALUES (?, ?, ?, ?, ?, ?, ?)"
-      );
-
       $stmt = $mysqli->stmt_init();
 
-      if (!$stmt->prepare($sql)) {
-        die("SQL error: " . $mysqli->error);
-      }
-
-      $stmt->bind_param('sssisss', $firstName, $lastName, $emailIE, $studentNum, $program, $password, $activation_token_hash);
-
-
       if ($stmt->execute()) {
+
         $mail = require __DIR__ . "/mailer.php";
     
         $mail->setFrom("noreply@example.com");
-        $mail->addAddress($emailIE);
+        $mail->addAddress($_POST["email"]);
         $mail->Subject = "Account Activation";
         $mail->Body = <<<END
     
-        Click <a href="http://localhost/plmun-connect-final/activate-account.php?token=$activation_token">here</a> 
+        Click <a href="http://example.com/activate-account.php?token=$activation_token">here</a> 
         to activate your account.
     
         END;
     
         try {
-          $mail->send();
+    
+            $mail->send();
+    
         } catch (Exception $e) {
-          echo "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
-          exit;
+    
+            echo "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
+            exit;
+    
         }
     
-        header("Location: sign-up-success.php");
+        header("Location: signup-success.html");
         exit;
-      } 
+        
+    } else {
+        
+        if ($mysqli->errno === 1062) {
+            die("email already taken");
+        } else {
+            die($mysqli->error . " " . $mysqli->errno);
+        }
+    }
+    
+    
+      if ( ! $stmt->prepare($sql)) {
+          die("SQL error: " . $mysqli->error);
+      }
+
+      $stmt->bind_param("ssss",
+                      $_POST["name"],
+                      $_POST["email"],
+                      $password_hash,
+                      $activation_token_hash);
+      
+      header("location: ./login.php");
+      exit;
     }
   }
 ?>

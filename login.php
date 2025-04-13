@@ -76,9 +76,9 @@
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-          <label class="form-check-label" for="flexCheckIndeterminate">
-            Remember me
+          <input class="form-check-input" name="showPass" type="checkbox"  id="showPass">
+          <label class="form-check-label" for="showPass">
+            Show Password
           </label>
         </div>
         <div style="text-align: center;">
@@ -94,5 +94,12 @@
       </form>
     </div>
   </div>
+
+  <script>
+    document.getElementById("showPass").addEventListener("change", function () {
+      const passwordInput = document.getElementById("password");
+      passwordInput.type = this.checked ? "text" : "password";
+    });
+  </script>
 </body>
 </html>

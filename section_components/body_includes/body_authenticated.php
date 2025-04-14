@@ -44,7 +44,8 @@
                   </p>
                   <p style="font-weight: bolder;">
                     Tuesday, April 1 <br>
-                    8:00PM - 10:00PM
+                    8:00PM - 10:00PM <br>
+                    Venue CL1
                   </p>
                   <h3 style="font-weight: 650;">Host</h3>
                   <p>Matthew David C. Fernandez</p>

@@ -100,8 +100,13 @@
             </div>
 
             <div class="mb-3">
-              <label for="time" class="form-label">Time</label>
-              <input type="time" id="time" name="time" class="form-control" required>
+              <label for="timeStart" class="form-label">Time start</label>
+              <input type="time" id="timeStart" name="timeStart" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="timeEnd" class="form-label">Time ending</label>
+              <input type="time" id="timeEnd" name="timeEnd" class="form-control" required>
             </div>
 
             <div class="mb-3">

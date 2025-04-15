@@ -1,5 +1,64 @@
 <?php 
   include './section_components/authenticated.php';
+
+
+  $hasError = false;
+
+
+  if($_SERVER['REQUEST_METHOD'] == "POST") {
+    $event_title = $_POST["title"];
+    $event_description = $_POST["description"];
+    $event_host = $_POST["host"];
+    $event_date = $_POST["date"];
+    $event_time = $_POST["time"];
+    $event_venue = $_POST["venue"];
+    
+
+    if (empty($event_title)) {
+      $event_title_error ="Event title is required.";
+      $hasError = true;
+    }
+    
+    if (empty($event_description)) {
+      $event_description_error = "Event description is required.";
+      $hasError = true;
+    }
+    
+    if (empty($event_host)) {
+      $event_host_error = "Event host is required.";
+      $hasError = true;
+    }
+    
+    if (empty($event_date)) {
+      $event_date_error = "Event date is required.";
+      $hasError = true;
+    }
+    
+    if (empty($event_time)) {
+      $event_time_error ="Event time is required.";
+      $hasError = true;
+    }
+    
+    if (empty($event_venue)) {
+      $event_venue_error = "Event venue is required.";
+      $hasError = true;
+    }
+    
+    if(!$hasError) {
+      include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+      $db_connection = getDatabaseConnection();
+      $event_date = date('Y-m-d', strtotime($event_date));
+      $event_time = date('H:i:s', strtotime($event_time));
+      
+      $sql = "INSERT INTO events (Title, Description, Host, EventDate, EventTime, Venue)
+              VALUES (?, ?, ?, ?, ?, ?);";
+
+      $statement = $db_connection->prepare($sql);
+      $statement->bind_param('ssssss', $event_title, $event_description, $event_host, $event_date, $event_time, $event_venue);  
+      $statement->execute();
+    }
+  }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,57 +67,53 @@
     include './section_components/header_includes/bootstrap.php';
   ?>
 
-
 <body>
 
   <?php 
     include './section_components/header_includes/nav.php';
   ?>
-      <div class="container d-flex justify-content-center align-items-center my-5 min-vh-50">
-  <div class="container">
-    <div class="card shadow-lg mx-auto" style="max-width: 600px;">
-      <div class="card-body">
-        <h2 class="card-title text-center mb-4">Create Event</h2>
-        <form action="your-php-handler.php" method="POST">
-          <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" id="title" name="title" class="form-control" required>
-          </div>
+  <div class="container d-flex justify-content-center align-items-center my-5 min-vh-50">
+    <div class="container">
+      <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Create Event</h2>
+          <form method="POST">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" id="title" name="title" class="form-control" required>
+              <small style="color: red;"></small>
+            </div>
 
-          <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea id="description" name="description" class="form-control" rows="4" placeholder="Enter event details..." required></textarea>
-          </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea id="description" name="description" class="form-control" rows="4" placeholder="Enter event details..." required></textarea>
+            </div>
 
-          <div class="mb-3">
-            <label for="host" class="form-label">Host</label>
-            <input type="text" id="host" name="host" class="form-control" required>
-          </div>
+            <div class="mb-3">
+              <label for="host" class="form-label">Host</label>
+              <input type="text" id="host" name="host" class="form-control" required>
+            </div>
 
-          <div class="mb-3">
-            <label for="date" class="form-label">Date</label>
-            <input type="date" id="date" name="date" class="form-control" required>
-          </div>
+            <div class="mb-3">
+              <label for="date" class="form-label">Date</label>
+              <input type="date" id="date" name="date" class="form-control" required>
+            </div>
 
-          <div class="mb-3">
-            <label for="time" class="form-label">Time</label>
-            <input type="time" id="time" name="time" class="form-control" required>
-          </div>
+            <div class="mb-3">
+              <label for="time" class="form-label">Time</label>
+              <input type="time" id="time" name="time" class="form-control" required>
+            </div>
 
-          <div class="mb-3">
-            <label for="venue" class="form-label">Venue</label>
-            <input type="text" id="venue" name="venue" class="form-control" required>
-          </div>
+            <div class="mb-3">
+              <label for="venue" class="form-label">Venue</label>
+              <input type="text" id="venue" name="venue" class="form-control" required>
+            </div>
 
-          
-
-          
-
-          <button type="submit" class="btn btn-success w-100">Submit</button>
-        </form>
+            <button type="submit" class="btn btn-success w-100">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
   </div>
   <script>
       function updateDateTime() {

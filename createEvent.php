@@ -2,15 +2,31 @@
   include './section_components/authenticated.php';
 
 
-  $hasError = false;
+  $event_title = "";
+  $event_description = "";
+  $event_host = "";
+  $event_date = "";
+  $event_time_start = "";
+  $event_time_end = "";
+  $event_venue = "";
 
+  $event_title_error = "";
+  $event_description_error = "";
+  $event_host_error = "";
+  $event_date_error = "";
+  $event_time_start_error = "";
+  $event_time_end_error = "";
+  $event_venue_error = "";
+  
+  $hasError = false;
 
   if($_SERVER['REQUEST_METHOD'] == "POST") {
     $event_title = $_POST["title"];
     $event_description = $_POST["description"];
     $event_host = $_POST["host"];
     $event_date = $_POST["date"];
-    $event_time = $_POST["time"];
+    $event_time_start = $_POST["timeStart"];
+    $event_time_end = $_POST["timeEnd"];
     $event_venue = $_POST["venue"];
     
 
@@ -34,8 +50,13 @@
       $hasError = true;
     }
     
-    if (empty($event_time)) {
-      $event_time_error ="Event time is required.";
+    if (empty($event_time_start)) {
+      $event_time_start_error ="Event time is required.";
+      $hasError = true;
+    }
+
+    if(empty($event_time_end)) {
+      $event_time_end_error ="Event time is required.";
       $hasError = true;
     }
     
@@ -48,9 +69,10 @@
       include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
       $db_connection = getDatabaseConnection();
       $event_date = date('Y-m-d', strtotime($event_date));
-      $event_time = date('H:i:s', strtotime($event_time));
+      $event_time_start = date('H:i:s', strtotime($event_time_start));
+      $event_time_end = date('H:i:s', strtotime($event_time_end));
       
-      $sql = "INSERT INTO events (Title, Description, Host, EventDate, EventTime, Venue)
+      $sql = "INSERT INTO events (Title, Description, Host, EventDate, timeStart, timeEnd, Venue)
               VALUES (?, ?, ?, ?, ?, ?);";
 
       $statement = $db_connection->prepare($sql);
@@ -80,38 +102,44 @@
           <form method="POST">
             <div class="mb-3">
               <label for="title" class="form-label">Title</label>
-              <input type="text" id="title" name="title" class="form-control" required>
-              <small style="color: red;"></small>
+              <input type="text" id="title" value="<?= $event_title?>" name="title" class="form-control" >
+              <small style="color: red;"><?= $event_title_error?></small>
             </div>
 
             <div class="mb-3">
               <label for="description" class="form-label">Description</label>
-              <textarea id="description" name="description" class="form-control" rows="4" placeholder="Enter event details..." required></textarea>
+              <textarea id="description" name="description" class="form-control" rows="4" placeholder="Enter event details..."><?= $event_description ?></textarea>
+              <small style="color: red;"><?= $event_description_error?></small>
             </div>
 
             <div class="mb-3">
               <label for="host" class="form-label">Host</label>
-              <input type="text" id="host" name="host" class="form-control" required>
+              <input type="text" value="<?= $event_host?>" id="host" name="host" class="form-control">
+              <small style="color: red;"><?= $event_host_error?></small>
             </div>
 
             <div class="mb-3">
               <label for="date" class="form-label">Date</label>
-              <input type="date" id="date" name="date" class="form-control" required>
+              <input type="date" id="date" name="date" value="<?= $event_date?>"  class="form-control">
+              <small style="color: red;"><?= $event_date_error?></small>
             </div>
 
             <div class="mb-3">
               <label for="timeStart" class="form-label">Time start</label>
-              <input type="time" id="timeStart" name="timeStart" class="form-control" required>
+              <input type="time" id="timeStart" name="timeStart" value="<?= $event_time_start?>" class="form-control">
+              <small style="color: red;"><?= $event_time_start_error ?></small>
             </div>
 
             <div class="mb-3">
               <label for="timeEnd" class="form-label">Time ending</label>
-              <input type="time" id="timeEnd" name="timeEnd" class="form-control" required>
+              <input type="time" id="timeEnd" name="timeEnd" value="<?= $event_time_end?>" class="form-control">
+              <small style="color: red;"><?= $event_time_end_error ?></small>
             </div>
 
             <div class="mb-3">
               <label for="venue" class="form-label">Venue</label>
-              <input type="text" id="venue" name="venue" class="form-control" required>
+              <input type="text" id="venue" name="venue" value="<?= $event_venue?>" class="form-control">
+              <small style="color: red;"><?= $event_venue_error ?></small>
             </div>
 
             <button type="submit" class="btn btn-success w-100">Submit</button>

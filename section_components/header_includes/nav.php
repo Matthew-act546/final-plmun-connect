@@ -30,7 +30,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link active text-white" href="./edit.php">My Event</a>
+        <a class="nav-link active text-white" href="./my-event.php">My Event</a>
       </li>
 
       <li class="nav-item">

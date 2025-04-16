@@ -1,5 +1,8 @@
 <?php 
   include './section_components/authenticated.php';
+  if($authenticated == false) {
+    header('location: dont-access.php');
+  }
 
 
   $event_title = "";

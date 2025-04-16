@@ -1,5 +1,8 @@
 <?php
   $first_name = $_SESSION['first_name'];
+
+  include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+  $db_connection = getDatabaseConnection();
 ?>
 
 

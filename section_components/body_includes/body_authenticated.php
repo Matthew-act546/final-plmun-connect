@@ -83,9 +83,6 @@
 
 ?>
 
-
-
-
 <script>
     function updateDateTime() {
         var now = new Date();
@@ -97,4 +94,3 @@
     updateDateTime();
     setInterval(updateDateTime, 1000);
 </script>
-

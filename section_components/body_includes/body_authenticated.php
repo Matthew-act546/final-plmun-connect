@@ -1,14 +1,19 @@
+<?php
+  $first_name = $_SESSION['first_name'];
+?>
+
+
 <div class="container mt-3" style="min-height: 100vh;">
   <div class="d-flex justify-content-between align-items-center">
-      <h1 class="m-0">Welcome <?= $_SESSION['first_name'] ?></h1>
-      <div id="datetimes" class="text-end"></div>
+    <h1 class="m-0">Welcome <?= $first_name ?></h1>
+    <div id="datetimes" class="text-end"></div>
   </div>
 
   <p>These are the Incoming Events at PLMun!</p>
 
   <div class="card m-3 border border-success">
     <div class="card-header ">
-      <b>CITCS</b>
+      <b>Computer Science Society</b>
     </div>
     <div class="card-body">
       <h5 class="card-title">Monthly Kamustahan</h5>
@@ -23,7 +28,7 @@
       </button>
 
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
 
             <div class="modal-body">
@@ -32,8 +37,6 @@
               </div>
               <div class="container">
               
-              <div class="row">
-                <div class="col-7">
                 <h1> Event title</h1>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis adipisci distinctio pariatur libero commodi ea 
@@ -52,13 +55,7 @@
 
                   <button class="btn btn-success mb-3">Count me in!</button>
                 </div>
-                <div class="col-5">
-                  <div class="border border-success mt-2" style="width: 98%; height: 80%;">
-
-                  </div>
-
-                </div>
-              </div>
+              
               </div>
             </div>
             

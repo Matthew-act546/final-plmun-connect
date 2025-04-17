@@ -1,5 +1,6 @@
 <?php
 
+
 $mysqli = require __DIR__ . "/database/db_connection.php";
 
 $sql = "INSERT INTO user (name, email, password, account_activation_hash)
@@ -12,11 +13,11 @@ if ( ! $stmt->prepare($sql)) {
 }
 
 $stmt->bind_param("ssss",
-                  $_POST["name"],
-                  $_POST["email"],
-                  $password_hash,
-                  $activation_token_hash);
-                  
+            $_POST["name"],
+            $_POST["email"],
+            $password_hash,
+            $activation_token_hash);
+            
 if ($stmt->execute()) {
     $mail = require __DIR__ . "/mailer.php";
     $mail->setFrom("noreply@example.com");

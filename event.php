@@ -1,5 +1,8 @@
 <?php 
     include './section_components/authenticated.php';
+    if($authenticated == false) {
+        header('location: dont-access.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,7 @@
 
 <div class="container mt-3" style="min-height: 100vh;">
     <div class="d-flex justify-content-between align-items-center">
-        <h1 class="m-0">Your event list!</h1>
+        <h1 class="m-0">Your incoming event list!</h1>
         <div id="datetimes" class="text-end"></div>
     </div>
 </div>

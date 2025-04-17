@@ -30,6 +30,10 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link active text-white" href="./my-event.php">My Event</a>
+      </li>
+
+      <li class="nav-item">
         <div class="btn-group ">
           <a class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
             <img src="./assets/images/profileIcon.svg" style="height: 30px; width: 30px;">

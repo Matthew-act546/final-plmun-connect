@@ -1,5 +1,8 @@
 <?php 
   include './section_components/authenticated.php';
+  if($authenticated == false) {
+    header('location: dont-access.php');
+  }
 
 
   $event_title = "";
@@ -40,18 +43,23 @@
       $hasError = true;
     }
     
-    if (empty($event_host)) {
+    if(empty($event_host)) {
       $event_host_error = "Event host is required.";
       $hasError = true;
     }
     
-    if (empty($event_date)) {
+    if(empty($event_date)) {
       $event_date_error = "Event date is required.";
       $hasError = true;
     }
     
-    if (empty($event_time_start)) {
+    if(empty($event_time_start)) {
       $event_time_start_error ="Event time is required.";
+      $hasError = true;
+    }
+
+    if($event_time_start > $event_time_end) {
+      $event_time_end_error ="Time ending is greater than start";
       $hasError = true;
     }
 
@@ -72,11 +80,11 @@
       $event_time_start = date('H:i:s', strtotime($event_time_start));
       $event_time_end = date('H:i:s', strtotime($event_time_end));
       
-      $sql = "INSERT INTO events (Title, Description, Host, EventDate, timeStart, timeEnd, Venue)
-              VALUES (?, ?, ?, ?, ?, ?, ?);";
+      $sql = "INSERT INTO events (Title, Description, Host, EventDate, timeStart, timeEnd, Venue, created_by)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
       $statement = $db_connection->prepare($sql);
-      $statement->bind_param('sssssss', $event_title, $event_description, $event_host, $event_date, $event_time_start, $event_time_end, $event_venue);  
+      $statement->bind_param('sssssssi', $event_title, $event_description, $event_host, $event_date, $event_time_start, $event_time_end, $event_venue, $created_by);  
       $statement->execute();
       header("location: index.php");
     }

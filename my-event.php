@@ -45,10 +45,8 @@
             ' . htmlspecialchars($row['Host']) . '<br>
             ' . htmlspecialchars($row['Venue']) . '
             </p>
-            <a href="edit.php">
-              <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Edit 
-              </button>
+            <a href="edit.php?event_id=' . $row['event_id'] . '" class="btn btn-success me-2">
+              Edit
             </a>
 
             <form method="POST" action="delete-event.php" style="display:inline;">

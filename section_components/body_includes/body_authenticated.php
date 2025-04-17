@@ -25,18 +25,15 @@
       <h1 class="m-0">Welcome ' . htmlspecialchars($first_name) .' </h1>
       <div id="datetimes" class="text-end"></div>
     </div>
-  
 
     <p>These are the Incoming Events at PLMun!</p>
   </div>
   ';
   
-  
   while ($row = $result->fetch_assoc()) {
     if(date('Y-m-d') < $row['EventDate']) {
       echo '
       <div class="container mt-3">
-      
         <div class="card m-3 border border-success">
           <div class="card-header">
             <b>' . htmlspecialchars($row['Host']) . '</b>
@@ -75,14 +72,13 @@
                   </div>
                 </div>
               </div>
-            </div> <!-- end modal -->
+            </div> 
           </div>
         </div>
         </div>
       ';
     }
   }
-  
 
 ?>
 

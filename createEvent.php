@@ -43,18 +43,23 @@
       $hasError = true;
     }
     
-    if (empty($event_host)) {
+    if(empty($event_host)) {
       $event_host_error = "Event host is required.";
       $hasError = true;
     }
     
-    if (empty($event_date)) {
+    if(empty($event_date)) {
       $event_date_error = "Event date is required.";
       $hasError = true;
     }
     
-    if (empty($event_time_start)) {
+    if(empty($event_time_start)) {
       $event_time_start_error ="Event time is required.";
+      $hasError = true;
+    }
+
+    if($event_time_start > $event_time_end) {
+      $event_time_end_error ="Time ending is greater than start";
       $hasError = true;
     }
 

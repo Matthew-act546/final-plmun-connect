@@ -7,6 +7,7 @@
 
   if (isset($_SESSION["ie_email"])) {
     $authenticated = true;
+    
+    $created_by = $_SESSION['id'];
   }
-  $created_by = $_SESSION['id'];
 ?>

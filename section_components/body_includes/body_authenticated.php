@@ -30,6 +30,7 @@
   </div>
   ';
   
+  
   while ($row = $result->fetch_assoc()) {
     if(date('Y-m-d') < $row['EventDate']) {
       echo '
@@ -72,13 +73,14 @@
                   </div>
                 </div>
               </div>
-            </div> 
+            </div> <!-- end modal -->
           </div>
         </div>
         </div>
       ';
     }
   }
+  
 
 ?>
 

@@ -1,53 +1,80 @@
 <?php 
-    include './section_components/authenticated.php';
-    if($authenticated == false) {
-        header('location: dont-access.php');
+  include './section_components/authenticated.php';
+  if($authenticated == false) {
+    header('location: dont-access.php');
+  }
+
+  $created_by = $_SESSION['id'];
+
+  include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+  $db_connection = getDatabaseConnection();
+  $statement = $db_connection->prepare("SELECT * FROM events WHERE created_by = ?");
+
+  $statement->bind_param('i', $created_by);
+
+  $statement->execute();
+
+  $result = $statement->get_result();
+  include './section_components/header_includes/nav.php';
+  
+  echo ' 
+  <div class="container mt-3">  
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="m-0">My event</h1>
+      <div id="datetimes" class="text-end"></div>
+    </div>
+    <p> Customize your events here!</p>
+  </div>
+  ';
+
+  while ($row = $result->fetch_assoc()) { 
+    if(date('Y-m-d') < $row['EventDate']) {
+      echo '
+      <div class="container mt-3">  
+        <div class="card m-3 border border-success">
+          <div class="card-header">
+            <b>' . htmlspecialchars($row['Host']) .'</b> 
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">'. htmlspecialchars($row['Title']) .'</h4> 
+            <p class="card-text"> <span class="lead fw-bold"> Description </span> <br>
+              '. nl2br(htmlspecialchars($row['Description'])) .'
+            </p>
+            <p class="card-text">
+            ' . htmlspecialchars($row['timeStart']) . ' - ' . htmlspecialchars($row['timeEnd']) . '<br>
+            ' . htmlspecialchars($row['Host']) . '<br>
+            ' . htmlspecialchars($row['Venue']) . '
+            </p>
+            <a href="edit.php">
+              <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Edit 
+              </button>
+            </a>
+
+            <form method="POST" action="delete-event.php" style="display:inline;">
+              <input type="hidden" name="event_id" value="'. $row['event_id'] .'">
+              <button type="submit" class="btn btn-outline-danger me-2">Delete</button>
+            </form>
+          </div>
+        </div> 
+      </div>
+      ';
     }
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php 
-        include './section_components/header_includes/bootstrap.php';
-    ?>
+  <?php 
+    include './section_components/header_includes/bootstrap.php';
+  ?>
 <body>
 
-    <?php 
-        include './section_components/header_includes/nav.php';
-    ?>
-
-<div class="container mt-3">
-    <div class="d-flex justify-content-between align-items-center">
-        <h1 class="m-0">My event</h1>
-        <div id="datetimes" class="text-end"></div>
-    </div>
-    <p> Customize your events here!</p>
-  <div class="card m-3 border border-success">
-    <div class="card-header ">
-      <b>Computer Science Society</b> <!-- shows the Host -->
-    </div>
-    <div class="card-body">
-      <h4 class="card-title">Monthly Kamustahan</h4> 
-      <p class="card-text"> <span class="lead fw-bold"> Description </span> <br>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nemo excepturi unde fugiat? Eaque maxime sint qui doloremque mollitia iusto culpa asperiores ut soluta ullam? Illo reiciendis facere dicta et!
-      </p>
-      <p class="card-text">
-      1:00PM - 5:00PM <br> 
-      Computer Science Society <br> 
-      CL1 
-
-      </p>
-      <a href="edit.php">
-        <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Edit 
-        </button>
-      </a>
-
-      <button type="button" class="btn btn-outline-danger me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      delete
-      </button>
-    </div>
-  </div>
+  <?php 
+    
+  ?>
+   
 
     <script>
         function updateDateTime() {

@@ -40,7 +40,6 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-start">
             <li><a class="dropdown-item" href="./viewProfile.php">View Profile</a></li>
-            <li><a class="dropdown-item" href="./settings.php">Settings</a></li>
             <li><hr class="dropdown-divider"></li>
             <li class="nav-item">
               <a class="dropdown-item" href="./logout.php">Logout</a>

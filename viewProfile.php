@@ -30,8 +30,6 @@
         Role: <?= $_SESSION['role']?> <br>
         Created: <?= $_SESSION['created_at']?> <br>
     </p>
-
-    <button type="btn" class="btn btn-success">Edit profile</button>
     <button type="btn" class="btn btn-success">Change Password</button>
     <button type="btn" class="btn btn-outline-danger">Delete Account</button>
 </div>

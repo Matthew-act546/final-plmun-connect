@@ -49,7 +49,7 @@
       $check_result = $check_stmt->get_result();
 
       if ($check_result->num_rows > 0) {
-        $event_joined = '<div class="alert alert-info mx-2 d-inline-block" style="width: 30%;">You already joined this event!</div>';
+        $event_joined = '<div class="mx-2 d-inline-block" style="width: auto;">You already joined at this event!</div>';
       } else {
         $event_joined = '
           <form action="register-event.php" class="d-inline-block" method="POST">
@@ -95,7 +95,7 @@
                       <h3 style="font-weight: 650;">Host</h3>
                       <p>' . htmlspecialchars($row['Host']) . '</p>
   
-                      ' . $event_joined . '
+                    ' . $event_joined . '
                     </div>
                   </div>
                 </div>

@@ -68,7 +68,11 @@
                       </p>
                       <h3 style="font-weight: 650;">Host</h3>
                       <p>' . htmlspecialchars($row['Host']) . '</p>
-                      <button class="btn btn-success mb-3">Count me in!</button>
+
+                      <form action="register-event.php" method="POST">
+                        <input type="hidden" name="event_id" value="'. $row['event_id'] .' ">
+                        <button type="submit" class="btn btn-success mb-3">Count me in!</button>
+                      </form>
                     </div>
                   </div>
                 </div>

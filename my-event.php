@@ -37,9 +37,11 @@
       CL1 
 
       </p>
-      <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Edit 
-      </button>
+      <a href="edit.php">
+        <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Edit 
+        </button>
+      </a>
 
       <button type="button" class="btn btn-outline-danger me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
       delete

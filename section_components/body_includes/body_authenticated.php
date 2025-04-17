@@ -18,6 +18,15 @@
 
   $statement->execute();
   $result = $statement->get_result();
+  $user_id = $_SESSION['id'];
+
+  $check_stmt = $db_connection->prepare("SELECT * FROM event_registrations WHERE user_id = ? AND event_id = ?");
+  $check_stmt->bind_param("ii", $user_id, $row['event_id']);
+  $check_stmt->execute();
+  $check_result = $check_stmt->get_result();
+
+  $event_joined = "";
+  
 
   echo '
   <div class="container mt-3">
@@ -32,7 +41,24 @@
   
   
   while ($row = $result->fetch_assoc()) {
-    if(date('Y-m-d') < $row['EventDate']) {
+    if (date('Y-m-d') < $row['EventDate']) {
+  
+      $check_stmt = $db_connection->prepare("SELECT * FROM event_registrations WHERE user_id = ? AND event_id = ?");
+      $check_stmt->bind_param("ii", $user_id, $row['event_id']);
+      $check_stmt->execute();
+      $check_result = $check_stmt->get_result();
+
+      if ($check_result->num_rows > 0) {
+        $event_joined = '<div class="alert alert-info mx-2 d-inline-block" style="width: 30%;">You already joined this event!</div>';
+      } else {
+        $event_joined = '
+          <form action="register-event.php" class="d-inline-block" method="POST">
+            <input type="hidden" name="event_id" value="'. $row['event_id'] .'">
+            <button type="submit" class="btn btn-success ">Count me in!</button>
+          </form>
+        ';
+      }
+  
       echo '
       <div class="container mt-3">
         <div class="card m-3 border border-success">
@@ -46,10 +72,10 @@
               ' . htmlspecialchars($row['Host']) . '<br>
               ' . htmlspecialchars($row['Venue']) . '
             </p>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal' . $row['event_id'] . '">
+            <button type="button" class="btn btn-success d-inline-block" data-bs-toggle="modal" data-bs-target="#modal' . $row['event_id'] . '">
               View more 
             </button>
-    
+            ' . $event_joined  .'
             <!-- Modal -->
             <div class="modal fade" id="modal' . $row['event_id'] . '" tabindex="-1" aria-labelledby="modalLabel' . $row['event_id'] . '" aria-hidden="true">
               <div class="modal-dialog modal-lg">
@@ -68,11 +94,8 @@
                       </p>
                       <h3 style="font-weight: 650;">Host</h3>
                       <p>' . htmlspecialchars($row['Host']) . '</p>
-
-                      <form action="register-event.php" method="POST">
-                        <input type="hidden" name="event_id" value="'. $row['event_id'] .' ">
-                        <button type="submit" class="btn btn-success mb-3">Count me in!</button>
-                      </form>
+  
+                      ' . $event_joined . '
                     </div>
                   </div>
                 </div>
@@ -80,10 +103,10 @@
             </div> <!-- end modal -->
           </div>
         </div>
-        </div>
-      ';
+      </div>';
     }
   }
+  
   
 
 ?>

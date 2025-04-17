@@ -20,6 +20,8 @@
   $stmt->execute();
   $result = $stmt->get_result();
 
+  
+
   include './section_components/header_includes/nav.php';
   echo '
     <div class="container mt-3">
@@ -30,7 +32,13 @@
       <p>This is !</p>'
       ;
 
+    
   while ($row = $result->fetch_assoc()) {
+    $leave_event = '<form action="leave-event.php" class="d-inline-block mx-2" method="POST">
+                      <input type="hidden" name="event_id" value="'. $row['event_id'] .'">
+                      <button type="submit" class="btn btn-outline-danger ">Leave</button>
+                    </form>';
+
     echo '
     <div class="container mt-3">
       <div class="card m-3 border border-success">
@@ -47,6 +55,7 @@
             <button type="button" class="btn btn-success d-inline-block" data-bs-toggle="modal" data-bs-target="#modal' . $row['event_id'] . '">
               View more 
             </button>
+            '. $leave_event .'
             <!-- Modal -->
             <div class="modal fade" id="modal' . $row['event_id'] . '" tabindex="-1" aria-labelledby="modalLabel' . $row['event_id'] . '" aria-hidden="true">
               <div class="modal-dialog modal-lg">
@@ -66,6 +75,7 @@
                       <h3 style="font-weight: 650;">Host</h3>
                       <p>' . htmlspecialchars($row['Host']) . '</p>
   
+                    '. $leave_event .'
                     </div>
                   </div>
                 </div>

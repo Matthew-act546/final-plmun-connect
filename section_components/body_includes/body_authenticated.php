@@ -42,6 +42,8 @@
   
   while ($row = $result->fetch_assoc()) {
     if (date('Y-m-d') < $row['EventDate']) {
+
+      
   
       $check_stmt = $db_connection->prepare("SELECT * FROM event_registrations WHERE user_id = ? AND event_id = ?");
       $check_stmt->bind_param("ii", $user_id, $row['event_id']);
@@ -59,6 +61,26 @@
         ';
       }
   
+      $participants_stmt = $db_connection->prepare("
+        SELECT u.first_name, u.last_name 
+        FROM event_registrations er
+        JOIN users u ON er.user_id = u.id
+        WHERE er.event_id = ?
+      ");
+      $participants_stmt->bind_param("i", $row['event_id']);
+      $participants_stmt->execute();
+      $participants_result = $participants_stmt->get_result();
+
+      
+      $participants_html = '<ul style="display: inline-block; list-style-type: none;">';
+      while ($participant = $participants_result->fetch_assoc()) {
+        $participants_html .= '<li>' . htmlspecialchars($participant['first_name'] . ' ' . $participant['last_name'] . ' ') . '</li>';
+      }
+      if ($participants_result->num_rows === 0) {
+        $participants_html = '<p>No participants found for this event </p>';
+      }
+      $participants_html .= '</ul>';
+
       echo '
       <div class="container mt-3">
         <div class="card m-3 border border-success">
@@ -94,8 +116,10 @@
                       </p>
                       <h3 style="font-weight: 650;">Host</h3>
                       <p>' . htmlspecialchars($row['Host']) . '</p>
-  
-                    ' . $event_joined . '
+                      <h3 style="font-weight: 650;">Participants</h3>
+                      ' . $participants_html . '
+                      <br>
+                      ' . $event_joined . '
                     </div>
                   </div>
                 </div>

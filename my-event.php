@@ -64,17 +64,17 @@
 <html lang="en">
 <body>
 
-    <script>
-        function updateDateTime() {
-            var now = new Date();
-            var date = now.toLocaleDateString();
-            var time = now.toLocaleTimeString();
-            document.getElementById("datetimes").innerHTML = date + "<br>" + time;
-        }
+<script>
+  function updateDateTime() {
+      var now = new Date();
+      var date = now.toLocaleDateString();
+      var time = now.toLocaleTimeString();
+      document.getElementById("datetimes").innerHTML = date + "<br>" + time;
+  }
 
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
-    </script>
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+</script>
 
 </body>
 </html>

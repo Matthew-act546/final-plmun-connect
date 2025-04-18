@@ -12,7 +12,7 @@
     if (empty($ie_email) || empty($pass)) {
         $error = "Password or Email are required";
     } else {
-      include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+      include './database/db_func.php';
       $db_connection = getDatabaseConnection();
 
       $statement = $db_connection->prepare("SELECT id, first_name, last_name, ie_email, student_num, program, password, role, created_at, account_activation_hash FROM users WHERE ie_email = ?");

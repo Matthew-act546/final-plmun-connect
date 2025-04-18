@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['event_id'])) {
   $created_by = $_SESSION['id'];
   $event_id = intval($_POST['event_id']); 
 
-  include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+  include './database/db_func.php';
   $db_connection = getDatabaseConnection();
 
   $sql = "DELETE FROM events WHERE event_id = ? AND created_by = ?";

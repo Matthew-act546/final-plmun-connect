@@ -149,8 +149,8 @@
       </div>
   </nav>
 
-  <div class="container d-flex align-items-center justify-content-center" id="sign-up" style='min-height: 100vh;'>
-  <div class="card p-2" style="width: 50%;">
+  <div class="container my-5">
+  <div class="card shadow-lg mx-auto p-5" style="max-width: 55vw;">
     <h2 class="text-center">Sign up</h2>
     <form class="form-control-sm" method="post" >
       <label for="full_name" class="form-label">First and last name</label>
@@ -220,7 +220,7 @@
       </div>
 
       <div style="text-align: center;">
-        <button type="submit" class="btn btn-primary" name="signUp">Sign Up</button>
+        <button type="submit" class="btn btn-success" name="signUp">Sign Up</button>
       </div>
 
     </form>

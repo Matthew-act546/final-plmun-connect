@@ -10,8 +10,7 @@
             execution, we provide the tools you need to create memorable and well-coordinated events. Let’s bring your ideas to
             life one successful event at a time!</p>
             <div>
-              <button type="button" class="btn btn-outline-success txt-bypass" style="width: 80px;"><a href="./sign-up.php"
-                  class="txt-bypass" style="text-decoration: none;">Sign up</a></button> 
+              <a href="./sign-up.php" class="btn btn-outline-success">Sign up</a>
               
             </div>
           </div>

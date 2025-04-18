@@ -17,8 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['event_id'])) {
   $stmt->bind_param("ii", $user_id, $event_id);
   $stmt->execute();
 
-
-
   $stmt->close();
   $db->close();
 }

@@ -15,6 +15,8 @@
   $statement->execute();
 
   $result = $statement->get_result();
+
+  include './section_components/header_includes/bootstrap.php';
   include './section_components/header_includes/nav.php';
   
   echo ' 
@@ -63,16 +65,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
-  <?php 
-    include './section_components/header_includes/bootstrap.php';
-  ?>
 <body>
-
-  <?php 
-    
-  ?>
-   
 
     <script>
         function updateDateTime() {

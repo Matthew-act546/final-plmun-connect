@@ -30,7 +30,12 @@
         Role: <?= $_SESSION['role']?> <br>
         Created: <?= $_SESSION['created_at']?> <br>
     </p>
-    <button type="btn" class="btn btn-success">Change Password</button>
+    <a href="change-password.php" class="btn btn-success me-2">Change Password</a>
+    
+   
+    
+
+
     <button type="btn" class="btn btn-outline-danger">Delete Account</button>
 </div>
     <script>

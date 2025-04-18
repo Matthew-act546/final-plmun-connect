@@ -1,6 +1,6 @@
 <?php
   include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
-
+  session_start();
   $error = false;
 
   $current_password_error = "";

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+include './database/db_func.php';
 
 $db = getDatabaseConnection();
 
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($delete_user->execute()) {
     session_destroy();
-    header("Location: index.php");
+    header("Location: index.php?msg=account_deleted");
     exit();
   } else {
     echo "Failed to delete account.";

@@ -6,7 +6,7 @@
 
   $created_by = $_SESSION['id'];
 
-  include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+  include './database/db_func.php';
   $db_connection = getDatabaseConnection();
   $statement = $db_connection->prepare("SELECT * FROM events WHERE created_by = ?");
 

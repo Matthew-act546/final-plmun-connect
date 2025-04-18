@@ -1,5 +1,5 @@
 <?php
-  include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+  include './database/db_func.php';
   session_start();
   $error = false;
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+include './database/db_func.php';
 
 if (!isset($_SESSION['id'])) {
   header("Location: dont-access.php");

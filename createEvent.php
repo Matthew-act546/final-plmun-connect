@@ -74,7 +74,7 @@
     }
     
     if(!$hasError) {
-      include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+      include './database/db_func.php';
       $db_connection = getDatabaseConnection();
       $event_date = date('Y-m-d', strtotime($event_date));
       $event_time_start = date('H:i:s', strtotime($event_time_start));

@@ -1,6 +1,6 @@
 <?php 
   include './section_components/authenticated.php';
-  include 'C:\xampp\htdocs\plmun-connect-final\database\db_func.php';
+  include './database/db_func.php';
   if($authenticated == false) {
     header('location: dont-access.php');
   }

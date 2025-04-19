@@ -41,10 +41,7 @@
   
   
   while ($row = $result->fetch_assoc()) {
-    if (date('Y-m-d') < $row['EventDate']) {
-
-      
-  
+    if (date('Y-m-d') <= $row['EventDate']) {
       $check_stmt = $db_connection->prepare("SELECT * FROM event_registrations WHERE user_id = ? AND event_id = ?");
       $check_stmt->bind_param("ii", $user_id, $row['event_id']);
       $check_stmt->execute();

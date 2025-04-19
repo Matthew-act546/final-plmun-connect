@@ -16,35 +16,24 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `event_registrations`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `event_registrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ie_email` varchar(100) DEFAULT NULL,
-  `student_num` int(8) DEFAULT NULL,
-  `first_name` varchar(30) DEFAULT NULL,
-  `last_name` varchar(30) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `password` varchar(50) DEFAULT NULL,
-  `program` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `ie_email` (`ie_email`)
+CREATE TABLE `event_registrations` (
+  `registration_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `registered_at` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`registration_id`),
+  KEY `event_registrations_ibfk_2` (`event_id`),
+  KEY `event_registrations_ibfk_1` (`user_id`),
+  CONSTRAINT `event_registrations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `event_registrations_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'fernandezmatthewdavid_bscs@plmun.edu.ph',34343223,'Matthew David','Fernandez','2025-04-04 14:35:38','fef89c84840ed3a9d3f094febb61ea7f','BSBA-MM');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -55,4 +44,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-06 11:20:12
+-- Dump completed on 2025-04-19 16:05:54

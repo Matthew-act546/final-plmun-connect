@@ -65,8 +65,6 @@
 
     <button id="backToTop" class="back-to-top">↑ back to top?</button>
 
-    <hr style="border: 3px solid black; width: 70%; margin: 0 auto; color: black;">
-
   </body>
   <?php 
     }

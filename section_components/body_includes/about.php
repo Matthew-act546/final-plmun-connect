@@ -131,3 +131,7 @@
     </div>
   </div>
 </div>
+
+<?php
+include './section_components/footer.php';
+?>  

@@ -1,7 +1,7 @@
 const backToTopButton = document.getElementById("backToTop");
 
 window.onscroll = function () {
-if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 300) {
+if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
     backToTopButton.style.display = "block"; // Show button when scrolled 300px
 } else {
     backToTopButton.style.display = "none"; // Hide button when near top

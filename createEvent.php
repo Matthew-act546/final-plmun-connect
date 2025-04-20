@@ -97,6 +97,17 @@
   <?php 
     include './section_components/header_includes/bootstrap.php';
   ?>
+  <style>
+  .custom-card {
+    max-width: 55vw;
+  }
+
+  @media (max-width: 768px) {
+    .custom-card {
+      max-width: 80vw;
+    }
+  }
+  </style>
 
 <body>
 
@@ -104,7 +115,7 @@
     include './section_components/header_includes/nav.php';
   ?>
   <div class="container my-5">
-    <div class="card shadow-lg mx-auto p-5" style="max-width: 55vw;">
+    <div class="card shadow-lg mx-auto custom-card p-3">
       <div class="card-body">
         <h2 class="card-title text-center mb-4">Create Event</h2>
         <form method="POST">
@@ -169,7 +180,7 @@
   </script>
 
   <?php 
-      include './section_components/footer.php';
+    include './section_components/footer.php';
   ?>
 </body>
 </html>

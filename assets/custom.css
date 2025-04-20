@@ -39,7 +39,6 @@
     background-color: #006b3da4;
 }
 
-
 #datetime {
     color: white; 
     font-size: 14px; 
@@ -48,4 +47,15 @@
 
 .bg-body-custom {
     background-color: #006B3C;
+}
+
+
+.custom-card {
+    max-width: 55vw;
+}
+
+@media (max-width: 768px) {
+    .custom-card {
+        max-width: 80vw;
+    }
 }

@@ -96,68 +96,74 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <?php include './section_components/header_includes/bootstrap.php'; ?>
+  <?php include './section_components/header_includes/bootstrap.php'?>
+  <style>
+    .custom-card {
+      max-width: 55vw;
+    }
+
+    @media (max-width: 768px) {
+      .custom-card {
+        max-width: 80vw;
+      }
+    }
+  </style>
+
 <body>
 
-  <?php include './section_components/header_includes/nav.php'; ?>
-  
+  <?php include './section_components/header_includes/nav.php' ?>
   <div class="container my-5">
-    <div class="card shadow-lg mx-auto p-5" style="max-width: 55vw;">
-      <h2 class="card-title text-center mb-4">Edit Event</h2>
-      <form method="POST">
-        <input type="hidden" name="event_id" value="<?= $event['event_id'] ?>">
+    <div class="card shadow-lg mx-auto custom-card p-3">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">Edit Event</h2>
+        <form method="POST">
+          <input type="hidden" name="event_id" value="<?= $event['event_id'] ?>">
 
-        <!-- Event Title -->
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" name="title" value="<?= $event_title ?>">
-          <small style="color: red;"><?= $event_title_error ?? '' ?></small>
-        </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="<?= $event_title ?>">
+            <small style="color: red;"><?= $event_title_error ?? '' ?></small>
+          </div>
 
-        <!-- Event Description -->
-        <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
-          <textarea id="description" name="description" class="form-control" rows="4" placeholder="Enter event details..."><?= $event_description ?></textarea>
-          <small style="color: red;"><?= $event_description_error?></small>
-        </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" name="description" class="form-control" rows="4" placeholder="Enter event details..."><?= $event_description ?></textarea>
+            <small style="color: red;"><?= $event_description_error?></small>
+          </div>
 
-        <!-- Event Start Time -->
-        <div class="mb-3">
-          <label for="timeStart" class="form-label">Start Time</label>
-          <input type="time" class="form-control" id="timeStart" name="timeStart" value="<?= $event_time_start ?>">
-          <small style="color: red;"><?= $event_time_start_error ?? '' ?></small>
-        </div>
+          <div class="mb-3">
+            <label for="timeStart" class="form-label">Start Time</label>
+            <input type="time" class="form-control" id="timeStart" name="timeStart" value="<?= $event_time_start ?>">
+            <small style="color: red;"><?= $event_time_start_error ?? '' ?></small>
+          </div>
 
-        <!-- Event End Time -->
-        <div class="mb-3">
-          <label for="timeEnd" class="form-label">End Time</label>
-          <input type="time" class="form-control" id="timeEnd" name="timeEnd" value="<?= $event_time_end ?>">
-          <small style="color: red;"><?= $event_time_end_error ?? '' ?></small>
-        </div>
+          <div class="mb-3">
+            <label for="timeEnd" class="form-label">End Time</label>
+            <input type="time" class="form-control" id="timeEnd" name="timeEnd" value="<?= $event_time_end ?>">
+            <small style="color: red;"><?= $event_time_end_error ?? '' ?></small>
+          </div>
 
-        <!-- Event Host -->
-        <div class="mb-3">
-          <label for="host" class="form-label">Host</label>
-          <input type="text" class="form-control" id="host" name="host" value="<?= $event_host ?>">
-          <small style="color: red;"><?= $event_host_error ?? '' ?></small>
-        </div>
+          <div class="mb-3">
+            <label for="host" class="form-label">Host</label>
+            <input type="text" class="form-control" id="host" name="host" value="<?= $event_host ?>">
+            <small style="color: red;"><?= $event_host_error ?? '' ?></small>
+          </div>
 
-        <!-- Event Venue -->
-        <div class="mb-3">
-          <label for="venue" class="form-label">Venue</label>
-          <input type="text" class="form-control" id="venue" name="venue" value="<?= $event_venue ?>">
-          <small style="color: red;"><?= $event_venue_error ?? '' ?></small>
-        </div>
+          <div class="mb-3">
+            <label for="venue" class="form-label">Venue</label>
+            <input type="text" class="form-control" id="venue" name="venue" value="<?= $event_venue ?>">
+            <small style="color: red;"><?= $event_venue_error ?? '' ?></small>
+          </div>
 
-        <!-- Event Date -->
-        <div class="mb-3">
-          <label for="eventDate" class="form-label">Event Date</label>
-          <input type="date" class="form-control" id="eventDate" name="eventDate" value="<?= $event_date ?>">
-          <small style="color: red;"><?= $event_date_error ?? '' ?></small>
-        </div>
+          <div class="mb-3">
+            <label for="eventDate" class="form-label">Event Date</label>
+            <input type="date" class="form-control" id="eventDate" name="eventDate" value="<?= $event_date ?>">
+            <small style="color: red;"><?= $event_date_error ?? '' ?></small>
+          </div>
 
-        <button type="submit" class="btn btn-success">Update Event</button>
-      </form>
+          <button type="submit" class="btn btn-success">Update Event</button>
+        </form>
+      </div>
     </div>
   </div>
   <script>

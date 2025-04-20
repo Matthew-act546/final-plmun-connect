@@ -63,7 +63,7 @@
       include 'body_includes/about.php';
     ?>
 
-    <button id="backToTop" class="back-to-top">↑ back to top?</button>
+    
 
   </body>
   <?php 

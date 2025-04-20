@@ -9,5 +9,6 @@
 
   include './section_components/body.php';
 ?>
-
+<button id="backToTop" class="back-to-top">↑ back to top?</button>
+<script src="script.js"></script>
 </html>

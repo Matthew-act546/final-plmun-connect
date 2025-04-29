@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.c": "c",
+        "format": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp"
+    }
+}

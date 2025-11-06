@@ -1,6 +1,6 @@
 <?php 
   include './section_components/header_includes/bootstrap.php';
-  include 'C:\xampp\htdocs\plmun-connect-final\section_components\authenticated.php';
+  include 'section_components/authenticated.php';
 
   $ie_email = "";
   $error = "";
@@ -72,7 +72,7 @@
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" name="password" class="form-control" maxlength="50" minlength="8" id="password" placeholder="Enter your password">
+          <input type="password" name="password" class="form-control" maxlength="50"  id="password" placeholder="Enter your password">
         </div>
 
         <div class="form-check">
